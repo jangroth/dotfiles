@@ -1,0 +1,3 @@
+function pro() {
+  cd $PROJECTS_HOME/$1
+}
