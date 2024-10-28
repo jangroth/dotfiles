@@ -1,0 +1,149 @@
+execute pathogen#infect()
+
+filetype plugin indent on    " required
+
+set t_Co=256
+set background=dark
+colorscheme gruvbox
+
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set autoindent
+set cindent
+set ignorecase
+set smartcase
+set nowrap
+set paste
+filetype plugin indent on
+
+" This should be at the beginning as it will interfere with highlight otherwise
+syntax on
+
+" Redraw on leaving insert mode
+autocmd InsertLeave * redraw!
+
+" Number of lines to use for the command line
+set cmdheight=1
+
+" Shows a line indicating mode (ie, the -- INSERT -- at the bottom )
+set showmode
+
+" Show file position
+set ruler
+
+" Show incomplete commands in status bar.
+set showcmd
+
+" Show cursor line by default - makes it easier to pair
+set cursorline
+
+" Always show a status line
+set laststatus=2
+
+" Configure the status line
+set statusline=%F%m%a%r%=\ %y\ \ \-\ %3.3v,%5.5l/%5.5L\ %%%3.3p
+
+" line numbers on
+set number
+
+" next/previous search results always centered
+nmap n nzz
+nmap s-n s-nzz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" incremental search
+set incsearch
+set hlsearch
+
+let mapleader="\\"
+map <Leader>h :set hls!<CR>
+map <Leader>i :set ignorecase!<CR>
+map <Leader>l :set number!<CR>
+map <Leader>n :set number!<CR>
+map <Leader>p :set paste!<CR>
+map <Leader>c :set cursorline!<CR>
+
+" one space after a period not two
+set nojoinspaces
+
+" https://stackoverflow.com/a/9528322/512155
+" Save your backup files to a less annoying place than the current directory.
+" If you have .vim-backup in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/backup or .
+if isdirectory($HOME . '/.vim/backup') == 0
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=~/.vim/backup/
+set backupdir^=./.vim-backup/
+set backup
+
+" Save your swap files to a less annoying place than the current directory.
+" If you have .vim-swap in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+if isdirectory($HOME . '/.vim/swap') == 0
+  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=./.vim-swap//
+set directory+=~/.vim/swap//
+set directory+=~/tmp//
+set directory+=.
+
+" viminfo stores the the state of your previous editing session
+set viminfo+=n~/.vim/viminfo
+
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backup files, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+set lazyredraw
+
+map __ :set hls!<CR>
+map _ic :set ignorecase!<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-h> <C-w><C-h>
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
+map <C-l> <C-w><C-l>
+
+" open help in vertical split
+autocmd FileType help wincmd L
+
+" we hate literal tabs tabs
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s\ /
+" highlight extra spaces ftw
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+\%#\@<!$/
+
+" define macros
+" Use Ctrl-V + ESC for escape
+" Use Ctrl-V + Enter for enter
+" markdown italics
+let @i='i*ea*'
+" markdown bold
+let @b='i**ea**'
+" markdown code
+let @c='i`ea`'
+" Delete space at line end
+let @s='$x0'
+" Delete all trailing spaces in file
+let @S=':%s/\s\+$//g'

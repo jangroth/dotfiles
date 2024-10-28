@@ -8,7 +8,7 @@ confirm_binaries() {
             echo "✔ ...confirming: $x"
         else
             echo "⛌ ...missing: $x"
-            exit 0
+            exit 1
         fi
     done
 }

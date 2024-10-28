@@ -9,6 +9,7 @@ RUN command locale-gen en_US.UTF-8
 
 RUN apt-get install -y \
     curl \
+    fd-find \
     fontconfig \
     git \
     tmux \
@@ -29,6 +30,9 @@ RUN wget -P /home/jan/.local/share/fonts https://github.com/ryanoasis/nerd-fonts
     && unzip FiraCode.zip \
     && rm FiraCode.zip \
     && fc-cache -fv
+
+RUN mkdir -p ~/.local/bin \
+    && ln -s $(which fdfind) ~/.local/bin/fd
 
 CMD [ "/bin/zsh" ]
 WORKDIR /home/jan

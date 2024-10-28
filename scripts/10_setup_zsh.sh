@@ -1,15 +1,15 @@
 #!/bin/bash -e
-
-[ "$DOT_DEBUG" = 'true' ] && set -x
+[ -v DOT_DEBUG ] && set -x
 
 . "$(dirname "$0")/_config.sh"
 
 echo 'Configuring zsh...'
-confirm_binaries "git" "zsh" "starship"
+confirm_binaries "git" "starship" "zsh" 
 
 mkdir -p $HOME/.zsh/{functions,completions}
 cp -f "${DOT_ROOT}/files/zsh/zprofile" $HOME/.zprofile
 cp -f "${DOT_ROOT}/files/zsh/zshrc" $HOME/.zshrc
+cp -f "${DOT_ROOT}/files/zsh/zshenv" $HOME/.zshenv
 cp -f "${DOT_ROOT}/files/zsh/completions/"* $HOME/.zsh/completions/
 cp -f "${DOT_ROOT}/files/shell/functions/"* $HOME/.zsh/functions/
 cp -f "${DOT_ROOT}/files/shell/aliases" $HOME/.zsh/aliases
@@ -18,7 +18,7 @@ mkdir -p $HOME/.config
 cp -f "${DOT_ROOT}/files/starship/starship.toml" $HOME/.config/
 
 # update remote dependencies
-if [ "${DOT_REINSTALL}" = "true" ] || [ ! -d "$HOME/.oh-my-zsh" ]; then
+if [ -v DOT_DEDOT_REINSTALL ] || [ ! -d "$HOME/.oh-my-zsh" ]; then
     rm -rf $HOME/.oh-my-zsh
     git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.oh-my-zsh/custom/fzf

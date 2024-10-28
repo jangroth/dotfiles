@@ -1,5 +1,5 @@
 # set the environment for login shells
-[ -n ${DOT_DEBUG+x} ] && echo '-> .zprofile'
+[ -v DOT_DEBUG ] && echo '-> .zprofile'
 
 case "$(uname)" in
     'Linux')
