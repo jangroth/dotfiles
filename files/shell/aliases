@@ -11,6 +11,8 @@ alias egrep='egrep --color=auto'
 
 alias printenv="printenv | sort"
 
+alias k='kubectl'
+
 if [[ "${PLATFORM}" == "linux" ]]; then
     alias ls='ls -la --color=auto'
 elif [[ "${PLATFORM}" == "darwin" ]]; then
