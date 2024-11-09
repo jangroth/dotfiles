@@ -2,4 +2,4 @@
 
 cd docker
 docker build . \
-    --tag newdot:latest \
+    --tag dotfiles:latest \

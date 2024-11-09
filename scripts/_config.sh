@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/zsh -ex
 
 [ "$DOT_DEBUG" == 'true' ] && set -x
 

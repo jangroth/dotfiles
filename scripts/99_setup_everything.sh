@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/sh -eux
 
 export DOT_REINSTALL=true
 export DOT_DEBUG=true

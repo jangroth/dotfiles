@@ -1,5 +1,5 @@
-#!/bin/bash -e
-[ -v DOT_DEBUG ] && set -x
+#!/bin/sh -e
+[ -n "$DOT_DEBUG" ] && set -x
 
 . "$(dirname "$0")/_config.sh"
 
@@ -12,7 +12,7 @@ cp -rf "${DOT_ROOT}/files/vim/." $HOME/.vim
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 
 # update remote dependencies
-if [ -v DOT_DEDOT_REINSTALL ]  || [ ! -f "$HOME/.vim/autoload/pathogen.vim" ]; then
+if [ -n "$DOT_REINSTALL" ] || [ ! -f "$HOME/.vim/autoload/pathogen.vim" ]; then
     rm -rf $HOME/.vim/bundle
     curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
     git clone --depth=1 --branch=master https://github.com/morhetz/gruvbox.git $HOME/.vim/bundle/gruvbox

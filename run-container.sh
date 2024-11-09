@@ -4,7 +4,7 @@ docker run \
     --rm \
     --interactive \
     --tty \
-    --volume $(pwd):/home/jan/newdot \
-    --hostname newdot-test \
+    --volume $(pwd):/home/jan/dotfiles \
+    --hostname dotfiles-test \
     --env DOT_DEBUG="true" \
-    newdot:latest
+    dotfiles:latest

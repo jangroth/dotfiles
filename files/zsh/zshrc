@@ -16,11 +16,11 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh-autosuggest
 ZSH_AUTOSUGGEST_USE_ASYNC="true"
-bindkey '^ ' forward-word # Ctrl+space
 
 # keybindings
-bindkey -v '^?' backward-delete-char
-bindkey '^R' history-incremental-search-backward
+bindkey '^ ' forward-word # Ctrl+space
+bindkey -v '^?' backward-delete-char # Ctrl+?
+bindkey '^R' history-incremental-search-backward # Ctrl+R
 
 # history file
 HISTFILE="$HOME/.zsh_history"
