@@ -12,6 +12,7 @@ alias egrep='egrep --color=auto'
 alias printenv="printenv | sort"
 
 alias k='kubectl'
+alias tf='terraform'
 
 if [[ "${PLATFORM}" == "linux" ]]; then
     alias ls='ls -la --color=auto'
