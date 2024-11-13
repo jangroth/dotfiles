@@ -6,6 +6,8 @@
 echo 'Configuring tmux...'
 confirm_binaries "git" "tmux"
 
+tmux kill-server || true # kill tmux server if running
+
 cp -f "${DOT_ROOT}/files/tmux/tmux.conf" $HOME/.tmux.conf
 
 # update remote dependencies

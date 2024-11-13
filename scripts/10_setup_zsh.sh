@@ -10,7 +10,7 @@ echo "$script_dir"
 . "$script_dir/_config.sh"
 
 echo 'Configuring zsh...'
-confirm_binaries "git" "starship" "zsh" 
+confirm_binaries "git" "zsh" 
 
 mkdir -p "$HOME/.zsh/functions" "$HOME/.zsh/completions"
 cp -f "$DOT_ROOT/files/zsh/zprofile" "$HOME/.zprofile"
@@ -19,9 +19,6 @@ cp -f "$DOT_ROOT/files/zsh/zshenv" "$HOME/.zshenv"
 cp -f "$DOT_ROOT/files/zsh/completions/"* "$HOME/.zsh/completions/"
 cp -f "$DOT_ROOT/files/shell/functions/"* "$HOME/.zsh/functions/"
 cp -f "$DOT_ROOT/files/shell/aliases" "$HOME/.zsh/aliases"
-
-mkdir -p "$HOME/.config"
-cp -f "$DOT_ROOT/files/starship/starship.toml" "$HOME/.config/"
 
 # update remote dependencies
 if [ -n "$DOT_REINSTALL" ] || [ ! -d "$HOME/.oh-my-zsh" ]; then
