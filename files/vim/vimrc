@@ -4,7 +4,7 @@ filetype plugin indent on    " required
 
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 
 set expandtab
 set shiftwidth=2
@@ -146,4 +146,4 @@ let @c='i`ea`'
 " Delete space at line end
 let @s='$x0'
 " Delete all trailing spaces in file
-let @S=':%s/\s\+$//g'
+let @S=':%s/\s\+$//g'

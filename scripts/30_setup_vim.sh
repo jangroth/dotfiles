@@ -15,11 +15,10 @@ ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 if [ -n "$DOT_REINSTALL" ] || [ ! -f "$HOME/.vim/autoload/pathogen.vim" ]; then
     rm -rf $HOME/.vim/bundle
     curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    git clone --depth=1 --branch=master https://github.com/morhetz/gruvbox.git $HOME/.vim/bundle/gruvbox
+    git clone --depth=1 --branch=master https://github.com/dracula/vim.git $HOME/.vim/bundle/dracula
     git clone --depth=1 --branch=master https://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
     git clone --depth=1 --branch=master https://github.com/Xuyuanp/nerdtree-git-plugin.git $HOME/.vim/bundle/nerdtree-git-plugin
     git clone --depth=1 --branch=master https://tpope.io/vim/surround.git $HOME/.vim/bundle/surround
-    git clone --depth=1 --branch=master https://github.com/plasticboy/vim-markdown.git $HOME/.vim/bundle/vim-markdown
     find $HOME/.vim/bundle/ -maxdepth 2 -type d -name '.git' | xargs rm -rf {}
 fi
 
