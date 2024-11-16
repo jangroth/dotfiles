@@ -3,7 +3,9 @@ execute pathogen#infect()
 filetype plugin indent on    " required
 
 set t_Co=256
-set background=dark
+" set background=dark
+" This should be at the beginning as it will interfere with highlight otherwise
+syntax on
 colorscheme dracula
 
 set expandtab
@@ -17,8 +19,6 @@ set nowrap
 set paste
 filetype plugin indent on
 
-" This should be at the beginning as it will interfere with highlight otherwise
-syntax on
 
 " Redraw on leaving insert mode
 autocmd InsertLeave * redraw!

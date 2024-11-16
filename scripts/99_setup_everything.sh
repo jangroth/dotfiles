@@ -10,4 +10,4 @@ export DOT_DEBUG=true
 "${DOT_ROOT}/scripts/20_setup_tmux.sh"
 "${DOT_ROOT}/scripts/30_setup_vim.sh"
 "${DOT_ROOT}/scripts/40_setup_git.sh"
-"${DOT_ROOT}/scripts/10_setup_vscode.sh"
+"${DOT_ROOT}/scripts/50_setup_vscode.sh"
