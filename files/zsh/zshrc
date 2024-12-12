@@ -47,6 +47,14 @@ if [ -f ~/.fzf.zsh ]; then
     export FZF_CTRL_T_COMMAND="fd -t d . $PROJECTS_HOME"
 fi
 
+# golang
+
+if command -v go &> /dev/null; then
+  export GOROOT=$(dirname $(dirname $(which go)))
+  export GOPATH="$HOME/go"
+  export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+fi
+
 # functions
 for function in $ZSH_HOME/functions/*; do
     source $function
