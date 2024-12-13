@@ -50,7 +50,7 @@ fi
 # golang
 
 if command -v go &> /dev/null; then
-  export GOROOT=$(dirname $(dirname $(which go)))
+  export GOROOT="$(brew --prefix golang)/libexec"
   export GOPATH="$HOME/go"
   export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 fi
