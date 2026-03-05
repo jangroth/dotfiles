@@ -8,7 +8,7 @@ case "$(uname)" in
         ;;
     'Darwin')
         export PLATFORM='darwin'
-        export PROJECTS_HOME="${HOME}/data/dev/Projects"
+        export PROJECTS_HOME="${HOME}/Projects"
         ;;
     *)
         export PLATFORM='unknown'
