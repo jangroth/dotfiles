@@ -10,7 +10,7 @@ echo "$script_dir"
 . "$script_dir/_config.sh"
 
 echo 'Configuring zsh...'
-confirm_binaries "git" "zsh" 
+confirm_binaries "git" "zsh" "fd"
 
 mkdir -p "$HOME/.zsh/functions" "$HOME/.zsh/completions"
 cp -f "$DOT_ROOT/files/zsh/zprofile" "$HOME/.zprofile"
