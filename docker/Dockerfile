@@ -9,7 +9,6 @@ RUN command locale-gen en_US.UTF-8
 
 RUN apt-get install -y \
     curl \
-    fd \
     fd-find \
     fontconfig \
     git \

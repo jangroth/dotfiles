@@ -10,7 +10,11 @@ echo "$script_dir"
 . "$script_dir/_config.sh"
 
 echo 'Configuring zsh...'
-confirm_binaries "git" "zsh" "fd"
+if [ "$DOT_OS" = "linux" ]; then
+    confirm_binaries "git" "zsh" "fdfind"
+else
+    confirm_binaries "git" "zsh" "fd"
+fi
 
 mkdir -p "$HOME/.zsh/functions" "$HOME/.zsh/completions"
 cp -f "$DOT_ROOT/files/zsh/zprofile" "$HOME/.zprofile"

@@ -1,5 +1,5 @@
 #!/bin/bash -eux
 
 cd docker
-docker build . \
+docker buildx build . \
     --tag dotfiles:latest \
