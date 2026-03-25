@@ -7,4 +7,5 @@ docker run \
     --volume $(pwd):/home/jan/dotfiles \
     --hostname dotfiles-test \
     --env DOT_DEBUG="true" \
+    --workdir /home/jan/dotfiles \
     dotfiles:latest
