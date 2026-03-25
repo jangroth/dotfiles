@@ -34,5 +34,7 @@ RUN wget -P /home/jan/.local/share/fonts https://github.com/ryanoasis/nerd-fonts
 RUN mkdir -p ~/.local/bin \
     && ln -s $(which fdfind) ~/.local/bin/fd
 
+RUN touch /home/jan/.zshrc
+
 CMD [ "/bin/zsh" ]
 WORKDIR /home/jan
