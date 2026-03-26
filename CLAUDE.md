@@ -1,9 +1,48 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this repo is
+
+Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
+
+## Running setup
+
+```sh
+./scripts/99_setup_everything.sh   # run all setup scripts
+./scripts/10_setup_zsh.sh          # individual script
+DOT_REINSTALL=true ./scripts/10_setup_zsh.sh  # force re-clone remote dependencies
+DOT_DEBUG=true ./scripts/10_setup_zsh.sh      # verbose/trace output
+```
+
+## Testing with Docker (Linux)
+
+```sh
+./build-container.sh    # builds ubuntu:24.04 image with required packages
+./run-container.sh      # mounts repo into container at ~/dotfiles
+# inside container:
+~/dotfiles/scripts/99_setup_everything.sh
+```
+
+## Architecture
+
+### `scripts/_config.sh`
+Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`windows`) and `$DOT_ROOT` (repo root). Scripts call `confirm_binaries` to fail fast on missing deps.
+
+### `files/` structure
+- `zsh/` — `zshenv` (all shells), `zprofile` (login), `zshrc` (interactive). Tool-specific env vars are guarded with `command -v <tool>` checks.
+- `shell/aliases` and `shell/functions/` — sourced by `zshrc`; functions are auto-loaded from `~/.zsh/functions/`
+- `zsh/completions/` — custom completions copied to `~/.zsh/completions/`
+- Other dirs (`git/`, `tmux/`, `vim/`, `starship/`, `vscode/`) each have a corresponding `scripts/NN_setup_*.sh`
+
+### Platform differences
+- Linux uses `fdfind` (the Ubuntu package name); macOS uses `fd`
+- `$PROJECTS_HOME` resolves to `~/Projects` on macOS, `~` on Linux (set in `zprofile`)
+- The Docker image creates a `~/.local/bin/fd → fdfind` symlink to normalize this
+
 ## TODO
 
-- [x] Fix `scripts/10_setup_zsh.sh` line 13 failing in Docker (Linux)
-- [x] Update `build-container.sh` to use `docker buildx build`
-- [x] Update README.md to reflect current tools and setup process.
+- [ ] Bump Docker base image — currently pinned to `ubuntu:24.04` in `docker/Dockerfile`.
 - [ ] Fix git tab completion — error `_git:.:48: no such file or directory: ""` means `$script` (path to `git-completion.bash`) is not found. The search paths in `files/zsh/completions/_git` (lines 35-43) don't include Homebrew's location on macOS. Fix: add the Homebrew bash-completion path (e.g. output of `brew --prefix`/share/bash-completion/completions/git) to the locations array, or set the zstyle in zshrc.
-- [ ] Configure AWS pager — add `export AWS_PAGER=""` to shell env so AWS CLI output is not paged.
 - [ ] Implement a helper script that displays configured keyboard shortcuts for different tools (tmux, fzf, vim). Should read from actual config files where possible and present them in a readable format.
-- [x] Fix tmux status bar — on startup it shows stale environment (e.g. wifi name and weather) instead of reloading config. Should display user and hostname instead.
+- [ ] Add automated tests — two-tier approach: fast lint checks (`tests/lint.sh`) and Docker-based integration tests (`tests/integration.sh`). See plan in `~/.claude/plans/adaptive-dreaming-narwhal.md` and memory `project_testing_strategy.md`.
