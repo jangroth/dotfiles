@@ -1,5 +1,5 @@
 #!/bin/sh -e
-[ -n "$DOT_DEBUG" ] && set -x
+[ -n "$DOT_VERBOSE" ] && set -x
 
 script_path=$(realpath "$0")
 script_dir=$(dirname "$script_path")

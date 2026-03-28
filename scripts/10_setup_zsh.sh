@@ -1,5 +1,5 @@
 #!/bin/sh -e
-[ -n "$DOT_DEBUG" ] && set -x
+[ -n "$DOT_VERBOSE" ] && set -x
 
 script_path=$(realpath "$0")
 script_dir=$(dirname "$script_path")
@@ -25,7 +25,7 @@ cp -f "$DOT_ROOT/files/shell/functions/"* "$HOME/.zsh/functions/"
 cp -f "$DOT_ROOT/files/shell/aliases" "$HOME/.zsh/aliases"
 
 # update remote dependencies
-if [ -n "$DOT_REINSTALL" ] || [ ! -d "$HOME/.oh-my-zsh" ]; then
+if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.oh-my-zsh" ]; then
     rm -rf "$HOME/.oh-my-zsh"
     git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.oh-my-zsh/custom/fzf"

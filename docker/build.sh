@@ -1,5 +1,5 @@
 #!/bin/bash -eux
 
-cd docker
+cd "$(dirname "$0")"
 docker buildx build . \
     --tag dotfiles:latest \

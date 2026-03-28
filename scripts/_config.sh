@@ -1,6 +1,6 @@
 #!/bin/zsh -ex
 
-[ "$DOT_DEBUG" == 'true' ] && set -x
+[ -n "$DOT_VERBOSE" ] && set -x
 
 confirm_binaries() {
     for x in "$@"; do
