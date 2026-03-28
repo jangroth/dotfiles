@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## conventions
+
+- Keep `README.md` up to date whenever making changes that affect setup, usage, or tooling.
+
 ## What this repo is
 
 Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
@@ -9,17 +13,18 @@ Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `s
 ## Running setup
 
 ```sh
-./scripts/99_setup_everything.sh   # run all setup scripts
-./scripts/10_setup_zsh.sh          # individual script
-DOT_REINSTALL=true ./scripts/10_setup_zsh.sh  # force re-clone remote dependencies
-DOT_DEBUG=true ./scripts/10_setup_zsh.sh      # verbose/trace output
+make install                                    # run all setup scripts
+make reinstall                                  # force re-fetch remote dependencies
+./scripts/10_setup_zsh.sh                       # individual script
+DOT_FORCE=true ./scripts/10_setup_zsh.sh       # force re-fetch remote dependencies
+DOT_VERBOSE=true ./scripts/10_setup_zsh.sh     # verbose/trace output
 ```
 
 ## Testing with Docker (Linux)
 
 ```sh
-./build-container.sh    # builds ubuntu:24.04 image with required packages
-./run-container.sh      # mounts repo into container at ~/dotfiles
+./docker/build.sh    # builds ubuntu:24.04 image with required packages
+./docker/run.sh      # mounts repo into container at ~/dotfiles
 # inside container:
 ~/dotfiles/scripts/99_setup_everything.sh
 ```
@@ -51,3 +56,4 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
 - [ ] Enable/fix Terraform tab completion (`complete -o nospace -C /opt/homebrew/bin/terraform terraform` is hardcoded in `zshrc` — path may differ across machines).
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
+- [ ] Improve `99_setup_everything.sh` — don't abort on a single failing step; instead run all scripts and display a summary of passing/failing steps at the end.

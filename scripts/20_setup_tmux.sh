@@ -1,5 +1,5 @@
 #!/bin/sh -e
-[ -n "$DOT_DEBUG" ] && set +x
+[ -n "$DOT_VERBOSE" ] && set -x
 
 . "$(dirname "$0")/_config.sh"
 
@@ -11,7 +11,7 @@ tmux kill-server || true # kill tmux server if running
 cp -f "${DOT_ROOT}/files/tmux/tmux.conf" $HOME/.tmux.conf
 
 # update remote dependencies
-if [ -n "$DOT_REINSTALL" ] || [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     echo "Installing tmux plugins..."
     rm -rf $HOME/.tmux/plugins/tpm
     git clone --depth 1 https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm

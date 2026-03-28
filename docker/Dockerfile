@@ -12,6 +12,7 @@ RUN apt-get install -y \
     fd-find \
     fontconfig \
     git \
+    make \
     tmux \
     tree \
     vim \

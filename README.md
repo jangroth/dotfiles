@@ -16,7 +16,9 @@ My dotfiles for macOS and Linux.
 Run all setup scripts at once:
 
 ```sh
-./scripts/99_setup_everything.sh
+make install               # skip already-installed dependencies
+make reinstall             # force re-fetch all remote dependencies
+DOT_VERBOSE=true make install  # verbose/trace output
 ```
 
 Or run individual scripts:
@@ -30,19 +32,27 @@ Or run individual scripts:
 ./scripts/50_setup_vscode.sh
 ```
 
+## Linting
+
+Check syntax of all config and shell files:
+
+```sh
+make lint
+```
+
 ## Testing with Docker
 
 Build and run a Linux container to test the setup:
 
 ```sh
-./build-container.sh
-./run-container.sh
+make docker-build
+make docker-run
 ```
 
 Then inside the container:
 
 ```sh
-~/dotfiles/scripts/99_setup_everything.sh
+make install
 ```
 
 ## Helper functions

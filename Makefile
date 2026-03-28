@@ -1,15 +1,61 @@
-.PHONY: help lint docker-build docker-run
+#!/usr/bin/env make
 
+.DEFAULT_GOAL := help
+
+# COLORS
+GREEN  := $(shell tput -Txterm setaf 2)
+YELLOW := $(shell tput -Txterm setaf 3)
+WHITE  := $(shell tput -Txterm setaf 7)
+RED    := $(shell tput -Txterm setaf 1)
+CYAN   := $(shell tput -Txterm setaf 6)
+RESET  := $(shell tput -Txterm sgr0)
+
+TARGET_MAX_CHAR_NUM := 20
+
+###Help
+## Show help
 help:
-	@echo "lint          check syntax of all config and shell files"
-	@echo "docker-build  build the dotfiles Docker image"
-	@echo "docker-run    build image and launch interactive container"
+	@echo ''
+	@echo 'Usage:'
+	@echo '  ${YELLOW}make${RESET} ${GREEN}<target>${RESET}'
+	@echo ''
+	@echo 'Targets:'
+	@awk '/(^[a-zA-Z\-\.\_0-9]+:)|(^###[a-zA-Z]+)/ { \
+		header = match($$1, /^###(.*)/); \
+		if (header) { \
+			title = substr($$1, 4, length($$1)); \
+			printf "${CYAN}%s${RESET}\n", title; \
+		} \
+		helpMessage = match(lastLine, /^## (.*)/); \
+		if (helpMessage) { \
+			helpCommand = substr($$1, 0, index($$1, ":")-1); \
+			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
+			printf "  ${YELLOW}%-$(TARGET_MAX_CHAR_NUM)s${RESET} ${GREEN}%s${RESET}\n", helpCommand, helpMessage; \
+		} \
+	} \
+	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
+###Setup
+## Run all setup scripts
+install:
+	./scripts/run_all.sh
+
+## Force re-fetch all remote dependencies and run setup
+reinstall:
+	DOT_FORCE=true ./scripts/run_all.sh
+
+###Test
+## Check syntax of all config and shell files
 lint:
 	./tests/lint.sh
 
+###Docker
+## Build the dotfiles Docker image
 docker-build:
-	./build-container.sh
+	./docker/build.sh
 
+## Build image and launch interactive container
 docker-run: docker-build
-	./run-container.sh
+	./docker/run.sh
+
+.PHONY: help install reinstall lint docker-build docker-run
