@@ -59,6 +59,11 @@ if command -v go &> /dev/null; then
   export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 fi
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
 # functions
 for function in $ZSH_HOME/functions/*; do
     source $function

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -euox pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PASS=0
