@@ -52,3 +52,11 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
 - [ ] Enable/fix Terraform tab completion (`complete -o nospace -C /opt/homebrew/bin/terraform terraform` is hardcoded in `zshrc` — path may differ across machines).
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
+- [ ] Fix `zshrc` Go block — `GOROOT` uses `brew --prefix golang` which fails on Linux; should be guarded by OS check.
+- [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed.
+- [ ] Fix `zprofile` brew shellenv — `eval "$(/opt/homebrew/bin/brew shellenv)"` has no existence check; will error if Homebrew isn't at that path.
+- [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux.
+- [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`.
+- [ ] Fix `confirm_binaries` in `_config.sh` — `if $(which "${x}" >/dev/null)` is broken; should use `command -v`.
+- [ ] Fix stale `CLAUDE.md` reference to `99_setup_everything.sh` (replaced by `make install` / `scripts/run_all.sh`).
+- [ ] Fix `40_setup_git.sh` implicit dependency — assumes `~/.zsh/completions/` exists (created by `10_setup_zsh.sh`); should create it explicitly.
