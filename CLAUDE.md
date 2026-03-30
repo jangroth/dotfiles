@@ -6,6 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Keep `README.md` up to date whenever making changes that affect setup, usage, or tooling.
 
+## Git workflow
+
+- Always create a new branch before making any changes — never commit directly to main.
+- Always run `make lint` before committing.
+- Always check if `README.md` requires updating before committing.
+- Never push to remote without explicit user confirmation.
+
 ## What this repo is
 
 Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
