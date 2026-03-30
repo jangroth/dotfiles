@@ -13,6 +13,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always check if `README.md` requires updating before committing.
 - Never push to remote without explicit user confirmation.
 
+## Development conventions
+
+- When implementing CLI commands or shell functions, ask clarifying questions about the desired interface (argument format, completion behavior) before coding.
+
 ## What this repo is
 
 Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
