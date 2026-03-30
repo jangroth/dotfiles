@@ -47,10 +47,8 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
-- [ ] Fix git tab completion — error `_git:.:48: no such file or directory: ""` means `$script` (path to `git-completion.bash`) is not found. The search paths in `files/zsh/completions/_git` (lines 35-43) don't include Homebrew's location on macOS. Fix: add the Homebrew bash-completion path (e.g. output of `brew --prefix`/share/bash-completion/completions/git) to the locations array, or set the zstyle in zshrc.
 - [ ] Implement a helper script that displays configured keyboard shortcuts for different tools (tmux, fzf, vim). Should read from actual config files where possible and present them in a readable format.
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
 - [ ] Enable/fix Terraform tab completion (`complete -o nospace -C /opt/homebrew/bin/terraform terraform` is hardcoded in `zshrc` — path may differ across machines).
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
-- [ ] Handle tmux gracefully in `20_setup_tmux.sh` — currently kills the tmux server without warning (`tmux kill-server`), which would abruptly terminate any active sessions during `make install`.

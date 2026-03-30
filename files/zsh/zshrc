@@ -81,6 +81,9 @@ source $ZSH_HOME/aliases
 # prompt
 eval "$(starship init zsh)"
 
+# git completion
+zstyle ':completion:*:*:git:*' script "$HOME/.zsh/git-completion.bash"
+
 # completion; use cache if updated within 24h
 fpath=($ZSH_HOME/completions /usr/local/share/zsh/site-functions $fpath)
 autoload -Uz compinit
