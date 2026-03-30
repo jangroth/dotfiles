@@ -10,6 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Always create a new branch before making any changes — never commit directly to main.
 - Always run `make lint` before committing.
+- Always check if `README.md` requires updating before committing.
 - Never push to remote without explicit user confirmation.
 
 ## What this repo is
