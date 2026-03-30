@@ -6,9 +6,13 @@
 echo 'Configuring tmux...'
 confirm_binaries "git" "tmux"
 
-tmux kill-server || true # kill tmux server if running
-
 cp -f "${DOT_ROOT}/files/tmux/tmux.conf" $HOME/.tmux.conf
+
+if tmux list-sessions &>/dev/null; then
+    echo "tmux server is running — reload config with prefix+r or 'tmux source-file ~/.tmux.conf'" >> "$HOME/.dotfiles-notes"
+else
+    tmux kill-server || true
+fi
 
 # update remote dependencies
 if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
