@@ -58,6 +58,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
+- [x] Add `make update` target — pull latest from GitHub and reinstall.
 - [ ] Implement a helper script that displays configured keyboard shortcuts for different tools (tmux, fzf, vim). Should read from actual config files where possible and present them in a readable format.
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
