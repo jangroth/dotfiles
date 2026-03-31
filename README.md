@@ -16,6 +16,7 @@ My dotfiles for macOS and Linux.
 Run all setup scripts at once:
 
 ```sh
+make update                # pull latest and install
 make install               # skip already-installed dependencies
 make reinstall             # force re-fetch all remote dependencies
 DOT_VERBOSE=true make install  # verbose/trace output

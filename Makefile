@@ -36,6 +36,12 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 ###Setup
+## Pull latest from GitHub and run setup
+update:
+	@git diff --quiet && git diff --cached --quiet || (echo "Error: uncommitted changes, please commit or stash first"; exit 1)
+	git pull
+	$(MAKE) install
+
 ## Run all setup scripts
 install:
 	./scripts/run_all.sh
@@ -58,4 +64,4 @@ docker-build:
 docker-run: docker-build
 	./docker/run.sh
 
-.PHONY: help install reinstall lint docker-build docker-run
+.PHONY: help update install reinstall lint docker-build docker-run
