@@ -1,0 +1,88 @@
+# vim
+
+> Leader key is `\`
+
+## Leader bindings
+
+| Key    | Action                        |
+|--------|-------------------------------|
+| `\h`   | Toggle search highlight       |
+| `\i`   | Toggle ignore case            |
+| `\n`   | Toggle line numbers           |
+| `\p`   | Toggle paste mode             |
+| `\c`   | Toggle cursor line highlight  |
+
+## Windows / splits
+
+| Key          | Action                        |
+|--------------|-------------------------------|
+| `Ctrl+N`     | Toggle NERDTree               |
+| `Ctrl+H/J/K/L` | Move between splits (vi-style) |
+| `:vs`        | Vertical split                |
+| `:sp`        | Horizontal split              |
+
+## Search
+
+Search results are always centered (`n`, `N`, `*`, `#` all auto-`zz`).
+
+| Key  | Action                                      |
+|------|---------------------------------------------|
+| `*`  | Search for word under cursor (forward)      |
+| `#`  | Search for word under cursor (backward)     |
+| `__` | Toggle search highlight                     |
+
+## Marks and jumps
+
+**Marks** — bookmark positions and jump back to them:
+
+| Key   | Action                                        |
+|-------|-----------------------------------------------|
+| `ma`  | Set mark `a` at cursor (any letter a–z)       |
+| `'a`  | Jump to line of mark `a`                      |
+| `` `a `` | Jump to exact position of mark `a`        |
+| `'.`  | Jump to position of last edit                 |
+| `''`  | Jump back to position before last jump        |
+
+**Jump list** — vim tracks every large movement automatically:
+
+| Key      | Action                      |
+|----------|-----------------------------|
+| `Ctrl+O` | Jump back (older position)  |
+| `Ctrl+I` | Jump forward (newer position) |
+| `:jumps` | Show full jump list         |
+
+Tip: after searching or jumping to a definition, `Ctrl+O` brings you right back.
+
+## Macros
+
+**Ad-hoc macros** — record and replay any sequence of commands:
+
+| Key   | Action                              |
+|-------|-------------------------------------|
+| `qa`  | Start recording into register `a`   |
+| `q`   | Stop recording                      |
+| `@a`  | Replay macro `a`                    |
+| `@@`  | Repeat last replayed macro          |
+| `5@a` | Replay macro `a` five times         |
+
+**Predefined macros** (operate on word at cursor):
+
+| Key | Action                                        |
+|-----|-----------------------------------------------|
+| `@i` | Wrap word in markdown italics — `*word*`     |
+| `@b` | Wrap word in markdown bold — `**word**`      |
+| `@c` | Wrap word in markdown backtick — `` `word` `` |
+| `@s` | Delete trailing space on current line        |
+| `@S` | Delete all trailing spaces in file           |
+
+## Useful motions for quick edits
+
+| Key      | Action                                         |
+|----------|------------------------------------------------|
+| `ci"`    | Change inside quotes                           |
+| `ca(`    | Change around parentheses (includes the parens) |
+| `dit`    | Delete inside HTML/XML tag                     |
+| `=G`     | Re-indent from cursor to end of file           |
+| `gqq`    | Wrap current line to textwidth                 |
+| `Ctrl+A` | Increment number under cursor                  |
+| `Ctrl+X` | Decrement number under cursor                  |

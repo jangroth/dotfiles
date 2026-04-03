@@ -16,13 +16,15 @@ else
     confirm_binaries "git" "zsh" "fd"
 fi
 
-mkdir -p "$HOME/.zsh/functions" "$HOME/.zsh/completions"
+[ -L "$HOME/.dotfiles-help" ] && rm "$HOME/.dotfiles-help"
+mkdir -p "$HOME/.zsh/functions" "$HOME/.zsh/completions" "$HOME/.dotfiles-help"
 cp -f "$DOT_ROOT/files/zsh/zprofile" "$HOME/.zprofile"
 cp -f "$DOT_ROOT/files/zsh/zshrc" "$HOME/.zshrc"
 cp -f "$DOT_ROOT/files/zsh/zshenv" "$HOME/.zshenv"
 cp -f "$DOT_ROOT/files/zsh/completions/"* "$HOME/.zsh/completions/"
 cp -f "$DOT_ROOT/files/shell/functions/"* "$HOME/.zsh/functions/"
 cp -f "$DOT_ROOT/files/shell/aliases" "$HOME/.zsh/aliases"
+cp -f "$DOT_ROOT/files/help/"* "$HOME/.dotfiles-help/"
 git -C "$DOT_ROOT" log -1 --format="%h %ad" --date=short > "$HOME/.dotfiles-version"
 
 # update remote dependencies

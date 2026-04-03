@@ -1,0 +1,29 @@
+dfh() {
+    local help_dir="$HOME/.dotfiles-help"
+
+    if [[ -z "${1:-}" ]]; then
+        if [[ -f "$HOME/.dotfiles-version" ]]; then
+            print -P "%F{240}dotfiles $(cat $HOME/.dotfiles-version)%f"
+        fi
+        print ""
+        print -P "%Bavailable topics:%b"
+        for f in "$help_dir"/*(N); do
+            print "  ${f:t}"
+        done
+        return
+    fi
+
+    local page="$help_dir/$1"
+
+    if [[ ! -f "$page" ]]; then
+        print "No help page for '$1'"
+        print "Available: ${(j: :)${(f)\"$(ls $help_dir 2>/dev/null)\"}}"
+        return 1
+    fi
+
+    if command -v bat &>/dev/null; then
+        bat --language=md --style=header,grid --color=always "$page"
+    else
+        cat "$page"
+    fi
+}
