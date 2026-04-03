@@ -1,0 +1,7 @@
+#compdef dfh
+
+_dfh() {
+    _files -W "$HOME/.dotfiles-help"
+}
+
+_dfh

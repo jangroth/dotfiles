@@ -1,0 +1,38 @@
+# fzf — fuzzy finder
+
+## Key bindings
+
+| Key       | Action                                                        |
+|-----------|---------------------------------------------------------------|
+| `Ctrl+T`  | Insert a project directory path (searches `$PROJECTS_HOME`)   |
+| `Ctrl+R`  | Search shell history and insert selected command              |
+| `Alt+C`   | cd into a fuzzy-matched directory                             |
+
+## Navigation inside fzf
+
+| Key              | Action                     |
+|------------------|----------------------------|
+| `Ctrl+J` / `↓`   | Move down                  |
+| `Ctrl+K` / `↑`   | Move up                    |
+| `Tab`            | Mark/unmark (multi-select) |
+| `Enter`          | Confirm selection          |
+| `Esc` / `Ctrl+C` | Cancel                     |
+
+## Search syntax
+
+| Pattern       | Meaning                          | Example        |
+|---------------|----------------------------------|----------------|
+| `foo`         | Fuzzy match                      | `main`         |
+| `'foo`        | Exact match                      | `'main`        |
+| `^foo`        | Prefix match                     | `^src`         |
+| `foo$`        | Suffix match                     | `.go$`         |
+| `!foo`        | Negate / exclude                 | `!test`        |
+| `foo \| bar`  | OR                               | `fix \| feat`  |
+
+**Example:** `^src !test .go$` → Go files under src, excluding tests
+
+## Tips
+
+- `Ctrl+T` inserts a path — combine with commands: `cd <Ctrl+T>`, `vim <Ctrl+T>`
+- `Ctrl+R` is faster than scrolling history — type any fragment of a past command
+- Pipe anything into fzf: `git branch | fzf`

@@ -1,0 +1,69 @@
+# tmux
+
+> Prefix is `Ctrl+O` (not the default `Ctrl+B`)
+
+## Panes
+
+| Key                    | Action                                  |
+|------------------------|-----------------------------------------|
+| `prefix + \|`          | Split horizontally (keeps current path) |
+| `prefix + -`           | Split vertically (keeps current path)   |
+| `prefix + h/j/k/l`     | Move between panes (vi-style)           |
+| `prefix + H/J/K/L`     | Resize pane (repeatable)                |
+| `prefix + z`           | Zoom pane to full screen / unzoom       |
+| `prefix + !`           | Break pane out into its own window      |
+| `prefix + {`           | Swap pane with the one above/left       |
+| `prefix + }`           | Swap pane with the one below/right      |
+| `prefix + q`           | Show pane numbers (type number to jump) |
+
+## Layouts
+
+| Key              | Action                                      |
+|------------------|---------------------------------------------|
+| `prefix + Space` | Cycle through layouts                       |
+| `prefix + Alt+1` | even-horizontal — panes side by side        |
+| `prefix + Alt+2` | even-vertical — panes stacked               |
+| `prefix + Alt+3` | main-horizontal — one large top, rest below |
+| `prefix + Alt+4` | main-vertical — one large left, rest right  |
+| `prefix + Alt+5` | tiled — grid                                |
+
+**Flipping two panes:** `prefix + {` / `prefix + }` swaps adjacent panes.
+For non-adjacent panes, use `prefix + q` to see numbers, then:
+```
+prefix + :swap-pane -s 1 -t 3
+```
+
+## Windows
+
+| Key            | Action                                       |
+|----------------|----------------------------------------------|
+| `prefix + c`   | New window                                   |
+| `prefix + ,`   | Rename current window                        |
+| `prefix + w`   | Visual window list                           |
+| `prefix + 1–9` | Jump to window by number (starts at 1)       |
+| `prefix + n/p` | Next / previous window                       |
+
+## Other
+
+| Key          | Action                              |
+|--------------|-------------------------------------|
+| `prefix + r` | Reload tmux config                  |
+| `Ctrl+L`     | Clear screen and scrollback history |
+
+## Plugins (TPM)
+
+| Key              | Action                  |
+|------------------|-------------------------|
+| `prefix + I`     | Install new plugins      |
+| `prefix + U`     | Update plugins           |
+| `prefix + Alt+U` | Remove unlisted plugins  |
+
+**tmux-resurrect / tmux-continuum**
+
+| Key               | Action                                    |
+|-------------------|-------------------------------------------|
+| `prefix + Ctrl+S` | Save session (windows + panes + paths)    |
+| `prefix + Ctrl+R` | Restore last saved session                |
+
+Continuum auto-saves every 15 min. Resurrect restores pane layout but not
+running processes unless configured with `@resurrect-capture-pane-contents`.

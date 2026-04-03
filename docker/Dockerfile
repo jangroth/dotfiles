@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Locales
 ENV LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
 RUN apt-get update && apt-get install -y \
+    bat \
     curl \
     fd-find \
     fontconfig \
@@ -33,7 +34,8 @@ RUN wget -P /home/jan/.local/share/fonts https://github.com/ryanoasis/nerd-fonts
     && fc-cache -fv
 
 RUN mkdir -p ~/.local/bin \
-    && ln -s $(which fdfind) ~/.local/bin/fd
+    && ln -s $(which fdfind) ~/.local/bin/fd \
+    && ln -s $(which batcat) ~/.local/bin/bat
 
 RUN touch /home/jan/.zshrc
 
