@@ -21,4 +21,6 @@ if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone --depth 1 https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-echo "-> tmux setup finished, use 'prefix+I' (capital 'i') to install tmux plugins."
+"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
+echo "-> tmux setup finished."
