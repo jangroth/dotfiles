@@ -2,11 +2,11 @@
 
 ## Key bindings
 
-| Key       | Action                                                        |
-|-----------|---------------------------------------------------------------|
-| `Ctrl+T`  | Insert a project directory path (searches `$PROJECTS_HOME`)   |
-| `Ctrl+R`  | Search shell history and insert selected command              |
-| `Alt+C`   | cd into a fuzzy-matched directory                             |
+| Key          | Action                                                        |
+|--------------|---------------------------------------------------------------|
+| `Ctrl+T`     | Insert a project directory path (searches `$PROJECTS_HOME`)   |
+| `Ctrl+R`     | Search shell history and insert selected command              |
+| `cd **<tab>` | cd into a fuzzy-matched directory                             |
 
 ## Navigation inside fzf
 
