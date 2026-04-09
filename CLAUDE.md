@@ -58,7 +58,6 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
-- [ ] Investigate `$PATH` over SSH — tools like `tmux` may not be on PATH when connecting remotely.
 - [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`.
 - [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only).
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
@@ -66,6 +65,5 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
 - [ ] Fix `zshrc` Go block — `GOROOT` uses `brew --prefix golang` which fails on Linux; should be guarded by OS check.
 - [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed.
-- [ ] Fix `zprofile` brew shellenv — `eval "$(/opt/homebrew/bin/brew shellenv)"` has no existence check; will error if Homebrew isn't at that path.
 - [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux.
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
