@@ -4,7 +4,7 @@
 
 confirm_binaries() {
     for x in "$@"; do
-        if $(which "${x}" 1>&1 >/dev/null); then
+        if command -v "${x}" >/dev/null 2>&1; then
             echo "✔ ...confirming: $x"
         else
             echo "⛌ ...missing: $x"
