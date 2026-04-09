@@ -15,6 +15,5 @@ case "$(uname)" in
         ;;
 esac
 
-if [ "$PLATFORM" = "darwin" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+# Homebrew shellenv is initialised in .zshenv so it is available in non-login shells too.
+# Nothing to do here.

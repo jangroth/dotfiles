@@ -4,6 +4,12 @@
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
+# Homebrew - must live here (not just .zprofile) so PATH is set for ALL shell types,
+# including non-login shells invoked over SSH (e.g. `ssh host tmux`).
+if [ -x "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
