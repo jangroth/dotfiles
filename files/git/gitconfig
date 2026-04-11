@@ -14,6 +14,17 @@
   cam = commit --amend --no-edit
   pfff = push --force
 
+  # Shows the top 20 most changed files in the last year
+  hotfiles = "!f() { git log --format=format: --name-only --since=\"${1:-1 year ago}\" | sort | uniq -c | sort -nr | head -20; }; f"
+  # Shows a list of contributors ranked by number of commits
+  rank = shortlog -sn --no-merges
+  # Shows commit frequency grouped by Year-Month
+  momentum = "!git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c"
+  # Identifies the top 20 files most associated with 'fix', 'bug', or 'broken'
+  bugfiles = "!git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20"
+  # Lists commit subjects containing emergency-related keywords
+  incidents = "!f() { git log --oneline --since=\"${1:-1 year ago}\" | grep -iE 'revert|hotfix|emergency|rollback'; }; f"
+
   alias = "config --get-regexp ^alias\\."
 [color]
 	ui = true
