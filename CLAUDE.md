@@ -58,6 +58,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
+- [ ] Add `tmux-ssh` function — SSH into a home network machine and attach to tmux (or create a new session if none running). Usage: `tmux-ssh kylo` or `tmux-ssh 192.168.86.201`.
 - [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`.
 - [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only).
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
