@@ -59,12 +59,12 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 ## TODO
 
 - [ ] Add `tmux-ssh` function — SSH into a home network machine and attach to tmux (or create a new session if none running). Usage: `tmux-ssh kylo` or `tmux-ssh 192.168.86.201`.
-- [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`.
-- [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only).
+- [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`. <!-- agent-safe -->
+- [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only). <!-- agent-safe -->
 - [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
 - [ ] Enable/fix Terraform tab completion (`complete -o nospace -C /opt/homebrew/bin/terraform terraform` is hardcoded in `zshrc` — path may differ across machines).
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
-- [ ] Fix `zshrc` Go block — `GOROOT` uses `brew --prefix golang` which fails on Linux; should be guarded by OS check.
-- [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed.
-- [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux.
+- [ ] Fix `zshrc` Go block — `GOROOT` uses `brew --prefix golang` which fails on Linux; should be guarded by OS check. <!-- agent-safe -->
+- [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed. <!-- agent-safe -->
+- [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
