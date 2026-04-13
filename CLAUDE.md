@@ -61,10 +61,14 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Add `tmux-ssh` function — SSH into a home network machine and attach to tmux (or create a new session if none running). Usage: `tmux-ssh kylo` or `tmux-ssh 192.168.86.201`.
 - [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`. <!-- agent-safe -->
 - [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only). <!-- agent-safe -->
-- [ ] Enable/fix AWS CLI tab completion (`complete -C aws_completer aws` is configured in `zshrc` but may not work if `aws_completer` is not on PATH).
-- [ ] Enable/fix Terraform tab completion (`complete -o nospace -C /opt/homebrew/bin/terraform terraform` is hardcoded in `zshrc` — path may differ across machines).
-- [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
-- [ ] Fix `zshrc` Go block — `GOROOT` uses `brew --prefix golang` which fails on Linux; should be guarded by OS check. <!-- agent-safe -->
+- [ ] Enable/fix AWS CLI tab completion — add `command -v aws_completer` guard in `zshrc`; currently registers broken completion if `aws_completer` is not on PATH. <!-- agent-safe -->
 - [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed. <!-- agent-safe -->
+- [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
+- [ ] Fix `zshrc` Go block — replace `brew --prefix golang` with `go env GOROOT`; current form fails on Linux. <!-- agent-safe -->
 - [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
+- [ ] Fix `zshenv` Homebrew init — only checks Apple Silicon path (`/opt/homebrew`); Intel Macs (`/usr/local`) silently get no Homebrew on PATH. <!-- agent-safe -->
+- [ ] Fix `zshrc` FZF_CTRL_T_COMMAND — uses `fd` unconditionally; broken on Linux without the Docker `fd→fdfind` symlink. <!-- agent-safe -->
+- [ ] Fix `zshrc` fpath — includes stale Intel Homebrew path (`/usr/local/share/zsh/site-functions`); should be guarded or replaced. <!-- agent-safe -->
+- [ ] Fix `scripts/20_setup_tmux.sh` — `tmux kill-server` fires when `list-sessions` fails, which also happens when a server is running but has no sessions.
+- [ ] Fix `gitconfig` hardcoded user identity — `name`/`email` silently overwrite git config on any machine running `make install`.
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
