@@ -67,7 +67,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Fix `zshrc` Go block — replace `brew --prefix golang` with `go env GOROOT`; current form fails on Linux. <!-- agent-safe -->
 - [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
 - [ ] Fix `zshenv` Homebrew init — only checks Apple Silicon path (`/opt/homebrew`); Intel Macs (`/usr/local`) silently get no Homebrew on PATH. <!-- agent-safe -->
-- [ ] Fix `zshrc` FZF_CTRL_T_COMMAND — uses `fd` unconditionally; broken on Linux without the Docker `fd→fdfind` symlink. <!-- agent-safe -->
+- [x] Fix `zshrc` FZF_CTRL_T_COMMAND — uses `fd` unconditionally; broken on Linux without the Docker `fd→fdfind` symlink. <!-- agent-safe -->
 - [ ] Fix `zshrc` fpath — includes stale Intel Homebrew path (`/usr/local/share/zsh/site-functions`); should be guarded or replaced. <!-- agent-safe -->
 - [ ] Fix `scripts/20_setup_tmux.sh` — `tmux kill-server` fires when `list-sessions` fails, which also happens when a server is running but has no sessions.
 - [ ] Fix `gitconfig` hardcoded user identity — `name`/`email` silently overwrite git config on any machine running `make install`.
