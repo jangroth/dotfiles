@@ -4,7 +4,7 @@ My dotfiles for macOS and Linux.
 
 ## Tools configured
 
-- **zsh** — shell config, aliases, functions, completions, oh-my-zsh plugins (fzf, autosuggestions, syntax highlighting)
+- **zsh** — shell config, aliases, functions, completions, oh-my-zsh plugins (fzf, autosuggestions, syntax highlighting, make)
 - **starship** — shell prompt
 - **tmux** — terminal multiplexer
 - **vim** — editor
