@@ -9,7 +9,20 @@ echo "$script_dir"
 
 . "$script_dir/_config.sh"
 
-mkdir -p "$HOME/Library/Application Support/Code/User"
-cp -f "$DOT_ROOT/files/vscode/settings.json" "$HOME/Library/Application Support/Code/User"
+case "$DOT_OS" in
+darwin)
+    vscode_config_dir="$HOME/Library/Application Support/Code/User"
+    ;;
+linux)
+    vscode_config_dir="$HOME/.config/Code/User"
+    ;;
+*)
+    echo "Unsupported OS: $DOT_OS — skipping VS Code config."
+    exit 0
+    ;;
+esac
+
+mkdir -p "$vscode_config_dir"
+cp -f "$DOT_ROOT/files/vscode/settings.json" "$vscode_config_dir"
 
 echo 'Done configuring vscode.'
