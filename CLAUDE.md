@@ -59,7 +59,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 ## TODO
 
 - [ ] Add `tmux-ssh` function — SSH into a home network machine and attach to tmux (or create a new session if none running). Usage: `tmux-ssh kylo` or `tmux-ssh 192.168.86.201`.
-- [ ] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`. <!-- agent-safe -->
+- [x] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`. <!-- agent-safe -->
 - [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only). <!-- agent-safe -->
 - [ ] Enable/fix AWS CLI tab completion — add `command -v aws_completer` guard in `zshrc`; currently registers broken completion if `aws_completer` is not on PATH. <!-- agent-safe -->
 - [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed. <!-- agent-safe -->
