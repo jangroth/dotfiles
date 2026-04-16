@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     locales \
     make \
     python3 \
+    shellcheck \
+    shfmt \
     tmux \
     tree \
     unzip \
