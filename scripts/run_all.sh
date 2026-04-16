@@ -2,7 +2,7 @@
 set -o pipefail
 
 . "$(dirname "$0")/_config.sh"
-{ set +x; } 2>/dev/null  # trace is for child scripts, not this one
+{ set +x; } 2>/dev/null # trace is for child scripts, not this one
 
 rm -f "$HOME/.dotfiles-notes"
 
@@ -48,7 +48,7 @@ echo "${#PASS[@]} passed, ${#FAIL[@]} failed"
 if [ -f "$HOME/.dotfiles-notes" ]; then
     echo ""
     echo "Notes:"
-    while IFS= read -r line; do echo "  ! $line"; done < "$HOME/.dotfiles-notes"
+    while IFS= read -r line; do echo "  ! $line"; done <"$HOME/.dotfiles-notes"
     rm "$HOME/.dotfiles-notes"
 fi
 

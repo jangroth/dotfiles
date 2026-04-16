@@ -25,7 +25,7 @@ cp -f "$DOT_ROOT/files/zsh/completions/"* "$HOME/.zsh/completions/"
 cp -f "$DOT_ROOT/files/shell/functions/"* "$HOME/.zsh/functions/"
 cp -f "$DOT_ROOT/files/shell/aliases" "$HOME/.zsh/aliases"
 cp -f "$DOT_ROOT/files/help/"* "$HOME/.dotfiles-help/"
-git -C "$DOT_ROOT" log -1 --format="%h %ad" --date=short > "$HOME/.dotfiles-version"
+git -C "$DOT_ROOT" log -1 --format="%h %ad" --date=short >"$HOME/.dotfiles-version"
 
 # update remote dependencies
 if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.oh-my-zsh" ]; then

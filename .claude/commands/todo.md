@@ -1,3 +1,7 @@
+---
+description: Add a new TODO item to CLAUDE.md
+---
+
 Add a new TODO item to CLAUDE.md.
 
 The user wants to add this TODO: $ARGUMENTS
