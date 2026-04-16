@@ -6,7 +6,8 @@ PASS=0
 FAIL=0
 
 check() {
-    local label="$1"; shift
+    local label="$1"
+    shift
     if "$@" &>/dev/null; then
         echo "PASS: $label"
         PASS=$((PASS + 1))
@@ -19,6 +20,17 @@ check() {
 # Shell scripts — bash syntax check
 for f in "$ROOT"/scripts/*.sh; do
     check "bash -n scripts/$(basename "$f")" bash -n "$f"
+done
+
+# shfmt — formatting check (.sh files only)
+for f in "$ROOT"/scripts/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
+    check "shfmt: $(basename "$f")" shfmt -d -i 4 "$f"
+done
+
+# static analysis — .sh files only, skipping _config.sh (zsh shebang)
+for f in "$ROOT"/scripts/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
+    [ "$(basename "$f")" = "_config.sh" ] && continue
+    check "shellcheck: $(basename "$f")" shellcheck --exclude=SC1091 "$f"
 done
 
 # Zsh config files
