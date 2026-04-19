@@ -64,7 +64,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Enable/fix AWS CLI tab completion — add `command -v aws_completer` guard in `zshrc`; currently registers broken completion if `aws_completer` is not on PATH. <!-- agent-safe -->
 - [ ] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed. <!-- agent-safe -->
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
-- [ ] Fix `zshrc` Go block — replace `brew --prefix golang` with `go env GOROOT`; current form fails on Linux. <!-- agent-safe -->
+- [x] Fix `zshrc` Go block — replace `brew --prefix golang` with `go env GOROOT`; current form fails on Linux. <!-- agent-safe -->
 - [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
 - [ ] Fix `zshenv` Homebrew init — only checks Apple Silicon path (`/opt/homebrew`); Intel Macs (`/usr/local`) silently get no Homebrew on PATH. <!-- agent-safe -->
 - [x] Fix `zshrc` FZF_CTRL_T_COMMAND — uses `fd` unconditionally; broken on Linux without the Docker `fd→fdfind` symlink. <!-- agent-safe -->

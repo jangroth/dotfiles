@@ -58,7 +58,7 @@ fi
 
 # golang
 if command -v go &> /dev/null; then
-  export GOROOT="$(brew --prefix golang)/libexec"
+  export GOROOT="$(go env GOROOT)"
   export GOPATH="$HOME/go"
   export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 fi
