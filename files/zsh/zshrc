@@ -99,4 +99,6 @@ autoload -U +X bashcompinit && bashcompinit
 if command -v terraform &>/dev/null; then
   complete -o nospace -C "$(command -v terraform)" terraform
 fi
-complete -C aws_completer aws
+if command -v aws_completer &>/dev/null; then
+  complete -C aws_completer aws
+fi
