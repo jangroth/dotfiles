@@ -72,3 +72,4 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [ ] Fix `scripts/20_setup_tmux.sh` — `tmux kill-server` fires when `list-sessions` fails, which also happens when a server is running but has no sessions.
 - [ ] Fix `gitconfig` hardcoded user identity — `name`/`email` silently overwrite git config on any machine running `make install`.
 - [ ] Make the Docker image reusable as a generic development container (e.g. configurable base image, dev tools, volume mounts).
+- [ ] Add support and documentation for tmux window movement.
