@@ -1,5 +1,6 @@
 ---
 description: Add a new TODO item to CLAUDE.md
+disable-model-invocation: true
 ---
 
 Add a new TODO item to CLAUDE.md.
