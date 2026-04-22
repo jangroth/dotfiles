@@ -58,6 +58,9 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
+- [ ] Investigate failing lint on scheduled CI task.
+- [ ] Update scheduled task to create non-draft PRs assigned to me.
+- [ ] Migrate TODO list from CLAUDE.md to GitHub issues for easier tracking without PRs.
 - [ ] Add `tmux-ssh` function — SSH into a home network machine and attach to tmux (or create a new session if none running). Usage: `tmux-ssh kylo` or `tmux-ssh 192.168.86.201`.
 - [x] Fix `tmux.conf` clipboard — `pbcopy` is macOS-only; Linux needs `xclip` or `wl-copy`. <!-- agent-safe -->
 - [ ] Add oh-my-zsh `Makefile` plugin for cleaner make tab completion (targets only). <!-- agent-safe -->
