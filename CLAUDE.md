@@ -68,7 +68,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - [x] Fix `zshrc` terraform completion — hardcoded `/opt/homebrew/bin/terraform` with no existence check; errors on every shell start if not installed. <!-- agent-safe -->
 - [ ] Enable/fix kubectl tab completion — not currently configured in `zshrc`.
 - [x] Fix `zshrc` Go block — replace `brew --prefix golang` with `go env GOROOT`; current form fails on Linux. <!-- agent-safe -->
-- [ ] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
+- [x] Fix `50_setup_vscode.sh` — hardcodes `~/Library/Application Support/Code/User` with no OS guard; will fail on Linux. <!-- agent-safe -->
 - [ ] Fix `zshenv` Homebrew init — only checks Apple Silicon path (`/opt/homebrew`); Intel Macs (`/usr/local`) silently get no Homebrew on PATH. <!-- agent-safe -->
 - [x] Fix `zshrc` FZF_CTRL_T_COMMAND — uses `fd` unconditionally; broken on Linux without the Docker `fd→fdfind` symlink. <!-- agent-safe -->
 - [x] Fix `zshrc` fpath — includes stale Intel Homebrew path (`/usr/local/share/zsh/site-functions`); should be guarded or replaced. <!-- agent-safe -->
