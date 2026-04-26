@@ -22,3 +22,9 @@ if [[ "${PLATFORM}" == "linux" ]]; then
 elif [[ "${PLATFORM}" == "darwin" ]]; then
     alias ls='ls -laG'
 fi
+
+if command -v uv &>/dev/null; then
+    alias python='uv run python'
+    alias python3='uv run python'
+    alias pip='uv pip'
+fi
