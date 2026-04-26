@@ -1,13 +1,15 @@
 ---
-description: Add a new TODO item to CLAUDE.md
+description: Create a new GitHub issue as a TODO item
 disable-model-invocation: true
 ---
 
-Add a new TODO item to CLAUDE.md.
+Create a new GitHub issue as a TODO item.
 
 The user wants to add this TODO: $ARGUMENTS
 
-1. Read CLAUDE.md
-2. Add `- [ ] $ARGUMENTS` as a new item in the `## TODO` section
-3. Keep it concise and consistent with existing TODO items
-4. Confirm the item was added
+Run:
+```
+gh issue create --title "$ARGUMENTS" --label todo --assignee "@me" --body ""
+```
+
+Then confirm with the issue URL.
