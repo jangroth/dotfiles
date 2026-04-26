@@ -24,6 +24,17 @@ Attach to a remote tmux over SSH:
 ssh darth.local -t "/opt/homebrew/bin/tmux attach"
 ```
 
+## Windows
+
+| Key            | Action                                 |
+|----------------|----------------------------------------|
+| `prefix + c`   | New window                             |
+| `prefix + ,`   | Rename current window                  |
+| `prefix + w`   | Visual window list                     |
+| `prefix + 1–9` | Jump to window by number (starts at 1) |
+| `prefix + n/p` | Next / previous window                 |
+| `prefix + .`   | New index for current window           |
+
 ## Panes
 
 | Key                | Action                                  |
@@ -43,27 +54,6 @@ ssh darth.local -t "/opt/homebrew/bin/tmux attach"
 | Key              | Action                                      |
 |------------------|---------------------------------------------|
 | `prefix + Space` | Cycle through layouts                       |
-| `prefix + Alt+1` | even-horizontal — panes side by side        |
-| `prefix + Alt+2` | even-vertical — panes stacked               |
-| `prefix + Alt+3` | main-horizontal — one large top, rest below |
-| `prefix + Alt+4` | main-vertical — one large left, rest right  |
-| `prefix + Alt+5` | tiled — grid                                |
-
-**Flipping two panes:** `prefix + {` / `prefix + }` swaps adjacent panes.
-For non-adjacent panes, use `prefix + q` to see numbers, then:
-```
-prefix + :swap-pane -s 1 -t 3
-```
-
-## Windows
-
-| Key            | Action                                 |
-|----------------|----------------------------------------|
-| `prefix + c`   | New window                             |
-| `prefix + ,`   | Rename current window                  |
-| `prefix + w`   | Visual window list                     |
-| `prefix + 1–9` | Jump to window by number (starts at 1) |
-| `prefix + n/p` | Next / previous window                 |
 
 ## Other
 
