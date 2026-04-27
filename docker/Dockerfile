@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 RUN useradd --create-home --shell /bin/zsh jan && echo "jan:docker" | chpasswd && adduser jan sudo
 USER jan:jan
