@@ -6,3 +6,6 @@ error_symbol = '[](bold red) '
 
 [kubernetes]
 disabled = false
+
+[python]
+python_binary = [["uv", "run", "--no-python-downloads", "python"]]
