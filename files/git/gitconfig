@@ -37,6 +37,3 @@
   ff = only
 [push]
 	default = current
-[user]
-	name = Jan Groth
-	email = jan.groth.de@gmail.com
