@@ -8,7 +8,7 @@ My dotfiles for macOS and Linux.
 - **starship** — shell prompt
 - **tmux** — terminal multiplexer
 - **vim** — editor
-- **git** — global config
+- **git** — global config (prompts for `user.name`/`user.email` if not already set; never overwrites existing identity)
 - **vscode** — editor settings
 
 ## Setup
