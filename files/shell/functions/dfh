@@ -21,8 +21,8 @@ dfh() {
         return 1
     fi
 
-    if command -v bat &>/dev/null; then
-        bat --language=md --style=header,grid --color=always "$page"
+    if command -v glow &>/dev/null; then
+        glow "$page"
     else
         cat "$page"
     fi
