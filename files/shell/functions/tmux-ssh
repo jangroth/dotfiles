@@ -1,7 +1,7 @@
-tmux-ssh() {
+function tmux-ssh() {
     if [[ -z "${1:-}" ]]; then
-        print "Usage: tmux-ssh <host>"
+        echo "Usage: tmux-ssh <host>"
         return 1
     fi
-    ssh -t "$1" 'tmux attach || tmux new-session'
+    ssh "$1" -t "tmux new-session -A -s main"
 }
