@@ -24,6 +24,12 @@ Attach to a remote tmux over SSH:
 ssh darth.local -t "/opt/homebrew/bin/tmux attach"
 ```
 
+Use `tmux-ssh` to SSH into a host and attach to (or create) a tmux session:
+```sh
+tmux-ssh kylo
+tmux-ssh 192.168.86.201
+```
+
 ## Windows
 
 | Key            | Action                                 |
