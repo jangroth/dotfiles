@@ -19,12 +19,7 @@
 
 Within the session list (`prefix + s`): `x` to delete, `t` to tag.
 
-Attach to a remote tmux over SSH:
-```sh
-ssh darth.local -t "/opt/homebrew/bin/tmux attach"
-```
-
-Use `tmux-ssh` to SSH into a host and attach to (or create) a tmux session:
+Attach to a remote tmux over SSH (attach existing session or create new):
 ```sh
 tmux-ssh kylo
 tmux-ssh 192.168.86.201
