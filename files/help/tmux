@@ -19,7 +19,7 @@
 
 Within the session list (`prefix + s`): `x` to delete, `t` to tag.
 
-Attach to a remote tmux over SSH (attach existing session or create new):
+Attach to (or create) a tmux session on a remote machine:
 ```sh
 tmux-ssh kylo
 tmux-ssh 192.168.86.201
@@ -39,7 +39,7 @@ tmux-ssh 192.168.86.201
 ## Panes
 
 | Key                | Action                                  |
-|--------------------|-----------------------------------------|
+|--------------------|------------------------------------------|
 | `prefix + \|`      | Split horizontally (keeps current path) |
 | `prefix + -`       | Split vertically (keeps current path)   |
 | `prefix + h/j/k/l` | Move between panes (vi-style)           |
