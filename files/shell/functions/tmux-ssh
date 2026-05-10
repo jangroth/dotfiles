@@ -1,0 +1,4 @@
+tmux-ssh() {
+    local host="${1:?Usage: tmux-ssh <host>}"
+    ssh -t "$host" 'tmux new-session -A -s main'
+}
