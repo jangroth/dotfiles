@@ -58,5 +58,6 @@ make install
 
 ## Helper functions
 
-- `pro [path]` — jump to a project directory under `$PROJECTS_HOME` (`~/Projects` on macOS, `~` on Linux), with tab completion for nested paths
 - `dfh [topic]` — dotfiles help; run `dfh` for version info and available topics, `dfh tmux` / `dfh fzf` / `dfh vim` for keybinding references extracted from config files
+- `pro [path]` — jump to a project directory under `$PROJECTS_HOME` (`~/Projects` on macOS, `~` on Linux), with tab completion for nested paths
+- `tmux-ssh <host>` — SSH into a machine and attach to (or create) a tmux session named `main`
