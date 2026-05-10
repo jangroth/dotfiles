@@ -21,8 +21,13 @@ dfh() {
         return 1
     fi
 
-    if command -v bat &>/dev/null; then
-        bat --language=md --style=header,grid --color=always "$page"
+    if command -v glow &>/dev/null; then
+        local style="$HOME/.config/glow/style.json"
+        if [[ -f "$style" ]]; then
+            CLICOLOR_FORCE=1 glow --style "$style" "$page" | LESSCHARSET=utf-8 less -R
+        else
+            glow "$page" | LESSCHARSET=utf-8 less -R
+        fi
     else
         cat "$page"
     fi

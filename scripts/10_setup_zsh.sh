@@ -25,6 +25,8 @@ cp -f "$DOT_ROOT/files/zsh/completions/"* "$HOME/.zsh/completions/"
 cp -f "$DOT_ROOT/files/shell/functions/"* "$HOME/.zsh/functions/"
 cp -f "$DOT_ROOT/files/shell/aliases" "$HOME/.zsh/aliases"
 cp -f "$DOT_ROOT/files/help/"* "$HOME/.dotfiles-help/"
+mkdir -p "$HOME/.config/glow"
+cp -f "$DOT_ROOT/files/glow/style.json" "$HOME/.config/glow/style.json"
 git -C "$DOT_ROOT" log -1 --format="%h %ad" --date=short >"$HOME/.dotfiles-version"
 
 # update remote dependencies
