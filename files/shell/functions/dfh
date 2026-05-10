@@ -22,7 +22,12 @@ dfh() {
     fi
 
     if command -v glow &>/dev/null; then
-        glow "$page"
+        local style="$HOME/.config/glow/style.json"
+        if [[ -f "$style" ]]; then
+            CLICOLOR_FORCE=1 glow --style "$style" "$page" | LESSCHARSET=utf-8 less -R
+        else
+            glow "$page" | LESSCHARSET=utf-8 less -R
+        fi
     else
         cat "$page"
     fi
