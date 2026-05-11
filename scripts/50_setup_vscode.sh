@@ -1,13 +1,7 @@
 #!/bin/sh -e
 [ -n "$DOT_VERBOSE" ] && set -x
 
-script_path=$(realpath "$0")
-script_dir=$(dirname "$script_path")
-
-echo "$script_path"
-echo "$script_dir"
-
-. "$script_dir/_config.sh"
+. "$(dirname "$0")/_config.sh"
 
 if [ "$DOT_OS" = "darwin" ]; then
     vscode_user_dir="$HOME/Library/Application Support/Code/User"

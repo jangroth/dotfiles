@@ -34,7 +34,7 @@ DOT_VERBOSE=true ./scripts/10_setup_zsh.sh     # verbose/trace output
 ## Testing with Docker (Linux)
 
 ```sh
-./docker/build.sh    # builds ubuntu:24.04 image with required packages
+./docker/build.sh    # builds debian:12.13-slim image with required packages
 ./docker/run.sh      # mounts repo into container at ~/dotfiles
 # inside container:
 make install

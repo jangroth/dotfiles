@@ -1,13 +1,7 @@
 #!/bin/sh -e
 [ -n "$DOT_VERBOSE" ] && set -x
 
-script_path=$(realpath "$0")
-script_dir=$(dirname "$script_path")
-
-echo "$script_path"
-echo "$script_dir"
-
-. "$script_dir/_config.sh"
+. "$(dirname "$0")/_config.sh"
 
 echo 'Configuring zsh...'
 if [ "$DOT_OS" = "linux" ]; then
