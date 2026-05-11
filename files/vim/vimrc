@@ -17,7 +17,6 @@ set ignorecase
 set smartcase
 set nowrap
 set paste
-filetype plugin indent on
 
 
 " Redraw on leaving insert mode

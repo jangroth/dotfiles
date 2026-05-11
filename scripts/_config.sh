@@ -1,4 +1,4 @@
-#!/bin/zsh -ex
+#!/bin/sh
 
 [ -n "$DOT_VERBOSE" ] && set -x
 

@@ -74,8 +74,8 @@ else
 fi
 
 # functions
-for function in $ZSH_HOME/functions/*; do
-    source $function
+for fn in $ZSH_HOME/functions/*; do
+    source $fn
 done
 
 # aliases
