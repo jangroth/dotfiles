@@ -16,7 +16,6 @@ set cindent
 set ignorecase
 set smartcase
 set nowrap
-set paste
 
 
 " Redraw on leaving insert mode
