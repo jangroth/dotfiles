@@ -12,7 +12,7 @@ export KEYTIMEOUT=5
 ZSH_THEME=""
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 fpath=($ZSH_HOME/completions /usr/local/share/zsh/site-functions(/N) $fpath)
-source $ZSH/oh-my-zsh.sh
+[ -d "$ZSH" ] && source "$ZSH/oh-my-zsh.sh"
 
 # zsh-autosuggest
 ZSH_AUTOSUGGEST_USE_ASYNC="true"
