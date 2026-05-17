@@ -82,7 +82,7 @@ done
 source $ZSH_HOME/aliases
 
 # prompt
-eval "$(starship init zsh)"
+command -v starship &>/dev/null && eval "$(starship init zsh)"
 
 # git completion
 zstyle ':completion:*:*:git:*' script "$HOME/.zsh/git-completion.bash"
