@@ -19,8 +19,7 @@ if [ -n "$DOT_FORCE" ] || [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     echo "Installing tmux plugins..."
     rm -rf "$HOME/.tmux/plugins/tpm"
     git clone --depth 1 https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    "$HOME/.tmux/plugins/tpm/bin/install_plugins"
 fi
-
-"$HOME/.tmux/plugins/tpm/bin/install_plugins"
 
 echo "-> tmux setup finished."
