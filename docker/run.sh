@@ -1,11 +1,12 @@
 #!/bin/bash -eux
 
+USERNAME="$(id -un)"
 docker run \
     --rm \
     --interactive \
     --tty \
-    --volume "$(pwd):/home/jan/dotfiles" \
+    --volume "$(pwd):/home/${USERNAME}/dotfiles" \
     --hostname dotfiles-test \
     --env DOT_VERBOSE="true" \
-    --workdir /home/jan/dotfiles \
+    --workdir "/home/${USERNAME}/dotfiles" \
     dotfiles:latest

@@ -1,6 +1,9 @@
 FROM debian:12.13-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
+ARG USERNAME=jan
+ENV HOME=/home/${USERNAME}
+
 # Locales
 ENV LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
 RUN apt-get update && apt-get install -y \
@@ -32,19 +35,19 @@ RUN mkdir -p /etc/apt/keyrings \
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-RUN useradd --create-home --shell /bin/zsh jan && echo "jan:docker" | chpasswd && adduser jan sudo
-USER jan:jan
-WORKDIR /home/jan
+RUN useradd --create-home --shell /bin/zsh "${USERNAME}" && echo "${USERNAME}:docker" | chpasswd && adduser "${USERNAME}" sudo
+USER ${USERNAME}:${USERNAME}
+WORKDIR ${HOME}
 
-RUN wget -P /home/jan/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip \
-    && cd /home/jan/.local/share/fonts \
+RUN wget -P "${HOME}/.local/share/fonts" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip \
+    && cd "${HOME}/.local/share/fonts" \
     && unzip FiraCode.zip \
     && rm FiraCode.zip \
     && fc-cache -fv
 
 RUN mkdir -p ~/.local/bin \
-    && ln -s $(which fdfind) ~/.local/bin/fd
+    && ln -s "$(which fdfind)" ~/.local/bin/fd
 
-RUN touch /home/jan/.zshrc
+RUN touch "${HOME}/.zshrc"
 
 CMD [ "/bin/zsh" ]
