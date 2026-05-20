@@ -10,6 +10,7 @@ My dotfiles for macOS and Linux.
 - **vim** — editor
 - **git** — global config
 - **vscode** — editor settings
+- **ghostty** — terminal emulator
 
 ## Setup
 
@@ -31,6 +32,7 @@ Or run individual scripts:
 ./scripts/30_setup_vim.sh
 ./scripts/40_setup_git.sh
 ./scripts/50_setup_vscode.sh
+./scripts/55_setup_ghostty.sh
 ```
 
 ## Linting
