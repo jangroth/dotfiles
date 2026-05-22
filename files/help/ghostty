@@ -5,6 +5,7 @@
 | Action              | How                                          |
 |---------------------|----------------------------------------------|
 | Reload config       | `Cmd+Shift+,` or Ghostty → Reload Configuration |
+| Close window        | `Cmd+W`                                      |
 
 Config file: `~/.config/ghostty/config`
 
