@@ -49,7 +49,7 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 - `zsh/` — `zshenv` (all shells), `zprofile` (login), `zshrc` (interactive). Tool-specific env vars are guarded with `command -v <tool>` checks.
 - `shell/aliases` and `shell/functions/` — sourced by `zshrc`; functions are auto-loaded from `~/.zsh/functions/`
 - `zsh/completions/` — custom completions copied to `~/.zsh/completions/`
-- Other dirs (`git/`, `tmux/`, `vim/`, `starship/`, `vscode/`) each have a corresponding `scripts/NN_setup_*.sh`
+- Other dirs (`git/`, `tmux/`, `vim/`, `starship/`, `vscode/`, `ghostty/`) each have a corresponding `scripts/NN_setup_*.sh`
 
 ### Platform differences
 - Linux uses `fdfind` (the Ubuntu package name); macOS uses `fd`

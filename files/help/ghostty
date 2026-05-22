@@ -1,0 +1,13 @@
+# ghostty
+
+## Configuration
+
+| Action              | How                                          |
+|---------------------|----------------------------------------------|
+| Reload config       | `Cmd+Shift+,` or Ghostty → Reload Configuration |
+| Close window        | `Cmd+W`                                      |
+
+Config file: `~/.config/ghostty/config`
+
+Most settings apply immediately on reload. Some (e.g. `term`) only take
+effect for new windows.
