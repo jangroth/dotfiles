@@ -1,0 +1,62 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get latest merged PR
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_json=$(gh pr list --state merged --base main --limit 1 --json number,title,mergedAt)
+          number=$(echo "$pr_json" | jq -r '.[0].number')
+          title=$(echo "$pr_json" | jq -r '.[0].title')
+          merged_at=$(echo "$pr_json" | jq -r '.[0].mergedAt' | cut -c1-10)
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+          echo "merged_at=$merged_at" >> "$GITHUB_OUTPUT"
+
+      - name: Prepend changelog entry
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          PR_TITLE: ${{ steps.pr.outputs.title }}
+          MERGED_AT: ${{ steps.pr.outputs.merged_at }}
+          REPO: ${{ github.repository }}
+        run: |
+          entry="## [${MERGED_AT}]\n\n### Changed\n\n- ${PR_TITLE} ([#${PR_NUMBER}](../../pull/${PR_NUMBER}))\n"
+          # Insert after the [Unreleased] section header and its blank line
+          python3 - <<'EOF'
+          import os, re
+          entry = f"## [{os.environ['MERGED_AT']}]\n\n### Changed\n\n- {os.environ['PR_TITLE']} ([#{os.environ['PR_NUMBER']}](../../pull/{os.environ['PR_NUMBER']}))\n"
+          with open('CHANGELOG.md', 'r') as f:
+              content = f.read()
+          # Insert the new entry after the [Unreleased] block
+          pattern = r'(## \[Unreleased\]\n\n)'
+          replacement = r'\g<1>' + entry + '\n'
+          new_content = re.sub(pattern, replacement, content, count=1)
+          with open('CHANGELOG.md', 'w') as f:
+              f.write(new_content)
+          EOF
+
+      - name: Commit updated changelog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git diff --cached --quiet || git commit -m "chore: update changelog for PR #${{ steps.pr.outputs.number }}"
+          git push
