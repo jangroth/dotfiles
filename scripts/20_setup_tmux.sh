@@ -8,7 +8,7 @@ confirm_binaries "git" "tmux"
 
 cp -f "${DOT_ROOT}/files/tmux/tmux.conf" "$HOME/.tmux.conf"
 
-if tmux list-sessions >/dev/null 2>&1; then
+if tmux info >/dev/null 2>&1; then
     echo "tmux server is running — reload config with prefix+r or 'tmux source-file ~/.tmux.conf'" >>"$HOME/.dotfiles-notes"
 else
     tmux kill-server || true
