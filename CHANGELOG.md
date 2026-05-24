@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-05-24]
+
+### Changed
+
+- Add CHANGELOG.md with backfill and auto-update workflow ([#96](../../pull/96))
+
 ## [2026-05-23]
 
 ### Fixed
