@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-06-18]
+
+### Changed
+
+- Expand ghostty help page with window management and shortcuts ([#98](../../pull/98))
+
 ## [2026-05-24]
 
 ### Changed
