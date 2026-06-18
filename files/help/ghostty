@@ -1,13 +1,23 @@
 # ghostty
 
+## Window Management
+
+> Titlebar is hidden (`macos-titlebar-style = hidden`)
+
+| Action | How |
+|---|---|
+| Move window | `Cmd`+`Ctrl`+drag anywhere in the window background |
+
 ## Configuration
 
-| Action              | How                                          |
-|---------------------|----------------------------------------------|
-| Reload config       | `Cmd+Shift+,` or Ghostty → Reload Configuration |
-| Close window        | `Cmd+W`                                      |
+| Action | How |
+|---|---|
+| Reload config | `Cmd`+`Shift`+`,` or Ghostty → Reload Configuration |
 
 Config file: `~/.config/ghostty/config`
 
-Most settings apply immediately on reload. Some (e.g. `term`) only take
-effect for new windows.
+Theme is set via `theme = <name>` in the config. To switch themes, edit the config and reload with `Cmd`+`Shift`+`,`. Most settings apply immediately on reload; some (e.g. `term`) only take effect for new windows.
+
+## Notes
+
+- Splits, tabs, and session management are handled by **tmux**, not Ghostty — run `dfh tmux` for those.
