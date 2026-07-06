@@ -8,6 +8,7 @@ My dotfiles for macOS and Linux.
 - **starship** — shell prompt
 - **tmux** — terminal multiplexer
 - **vim** — editor
+- **neovim** — editor (lazy.nvim plugin manager, dracula theme, nvim-tree, lualine, nvim-surround)
 - **git** — global config
 - **vscode** — editor settings
 - **ghostty** — terminal emulator config
@@ -30,6 +31,7 @@ Or run individual scripts:
 ./scripts/15_setup_starship.sh
 ./scripts/20_setup_tmux.sh
 ./scripts/30_setup_vim.sh
+./scripts/35_setup_nvim.sh
 ./scripts/40_setup_git.sh
 ./scripts/50_setup_vscode.sh
 ./scripts/60_setup_ghostty.sh
