@@ -56,17 +56,11 @@ tmux-ssh 192.168.86.201
 |------------------|---------------------------------------------|
 | `prefix + Space` | Cycle through layouts                       |
 
-## Other
-
-| Key          | Action                              |
-|--------------|-------------------------------------|
-| `prefix + r` | Reload tmux config                  |
-| `Ctrl+L`     | Clear screen and scrollback history |
-
-## Plugins (TPM)
+## Config & Plugins
 
 | Key              | Action                  |
 |------------------|-------------------------|
+| `prefix + r` | Reload tmux config                  |
 | `prefix + I`     | Install new plugins     |
 | `prefix + U`     | Update plugins          |
 | `prefix + Alt+U` | Remove unlisted plugins |
