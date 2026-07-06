@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- feat: expand starship config with Nord theme and update prompt symbols ([#105](../../pull/105))
+
+## [2026-07-06]
+
+### Changed
+
 - Fail fast in lint.sh when required tools are missing ([#103](../../pull/103))
 
 ## [2026-07-06]
