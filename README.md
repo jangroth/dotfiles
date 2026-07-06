@@ -43,6 +43,8 @@ Check syntax of all config and shell files:
 make lint
 ```
 
+Requires `zsh`, `shfmt`, `shellcheck`, and `python3` (≥ 3.11); lint fails fast with a list of missing tools instead of reporting per-file failures.
+
 ## Testing with Docker
 
 Build and run a Linux container to test the setup:

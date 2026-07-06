@@ -5,6 +5,20 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PASS=0
 FAIL=0
 
+# Fail fast if lint tools are missing — a missing binary would otherwise
+# surface as per-file FAILs indistinguishable from real lint problems.
+MISSING=()
+for tool in zsh shfmt shellcheck python3; do
+    command -v "$tool" &>/dev/null || MISSING+=("$tool")
+done
+if command -v python3 &>/dev/null && ! python3 -c 'import tomllib' &>/dev/null; then
+    MISSING+=("python3-tomllib (python >= 3.11)")
+fi
+if [ "${#MISSING[@]}" -gt 0 ]; then
+    echo "lint: missing required tools: ${MISSING[*]} — install them and re-run" >&2
+    exit 1
+fi
+
 check() {
     local label="$1"
     shift
