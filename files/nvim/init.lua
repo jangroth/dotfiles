@@ -46,7 +46,7 @@ require("lazy").setup({
         dependencies = { "neovim/nvim-lspconfig" },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "ruff_lsp", "yamlls" },
+                ensure_installed = { "pyright", "ruff", "yamlls" },
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup({})
@@ -83,6 +83,7 @@ vim.cmd.colorscheme("nord")
 
 -- Editor settings (mirrors vimrc)
 local opt = vim.opt
+opt.clipboard = "unnamedplus"
 opt.cursorline = true
 opt.expandtab = true
 opt.ignorecase = true
@@ -115,4 +116,8 @@ map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
 map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
 map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
--- Ctrl+h/j/k/l handled by vim-tmux-navigator (navigates both nvim splits and tmux panes)
+-- vim-tmux-navigator: navigate splits/panes from any mode
+map({ "n", "i", "v" }, "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+map({ "n", "i", "v" }, "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+map({ "n", "i", "v" }, "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+map({ "n", "i", "v" }, "<C-l>", "<cmd>TmuxNavigateRight<CR>")
