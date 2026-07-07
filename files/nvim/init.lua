@@ -13,48 +13,91 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Leader key must be set before plugins load
-vim.g.mapleader = "\\"
+vim.g.mapleader = " "
 
 -- Plugins
 require("lazy").setup({
-    { "Mofiqul/dracula.nvim" },
+    { "shaunsingh/nord.nvim" }, -- nord color scheme
     {
-        "nvim-tree/nvim-tree.lua",
+        "nvim-tree/nvim-tree.lua", -- file explorer sidebar
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {},
     },
     {
-        "nvim-lualine/lualine.nvim",
+        "nvim-lualine/lualine.nvim", -- configurable status line
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = { options = { theme = "dracula" } },
+        opts = { options = { theme = "nord" } },
     },
-    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} }, -- add/change/delete surrounding pairs (brackets, quotes, tags)
+    { "lewis6991/gitsigns.nvim", opts = {} }, -- git diff indicators in the sign column, hunk navigation and staging
+    {
+        "nvim-telescope/telescope.nvim", -- fuzzy finder for files, grep, buffers, git history
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+    },
+    {
+        "nvim-treesitter/nvim-treesitter", -- smarter syntax highlighting based on parse trees
+        build = ":TSUpdate",
+        opts = { highlight = { enable = true }, indent = { enable = true }, ensure_installed = { "python", "yaml" } },
+    },
+    { "williamboman/mason.nvim", opts = {} }, -- installs and manages language servers
+    {
+        "williamboman/mason-lspconfig.nvim", -- bridges mason and nvim-lspconfig; auto-installs and configures LSPs
+        dependencies = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = { "pyright", "ruff_lsp", "yamlls" },
+                handlers = {
+                    function(server_name)
+                        require("lspconfig")[server_name].setup({})
+                    end,
+                    ["yamlls"] = function()
+                        require("lspconfig").yamlls.setup({
+                            settings = {
+                                yaml = {
+                                    schemaStore = { enable = false, url = "" },
+                                    schemas = require("schemastore").yaml.schemas(),
+                                },
+                            },
+                        })
+                    end,
+                },
+            })
+        end,
+    },
+    {
+        "hrsh7th/nvim-cmp", -- autocompletion menu
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp", -- LSP completions
+            "hrsh7th/cmp-buffer",   -- buffer word completions
+            "hrsh7th/cmp-path",     -- file path completions
+        },
+    },
+    { "b0o/SchemaStore.nvim" }, -- provides 500+ JSON/YAML schemas (Kubernetes, Helm, GitHub Actions, etc.)
+    { "numToStr/Comment.nvim", opts = {} }, -- toggle comments with gcc (line) or gc (visual)
+    { "folke/which-key.nvim", opts = {} },  -- shows available keymaps when pausing mid-sequence
+    { "christoomey/vim-tmux-navigator" },   -- seamless navigation between neovim splits and tmux panes
 })
 
-vim.cmd.colorscheme("dracula")
+vim.cmd.colorscheme("nord")
 
 -- Editor settings (mirrors vimrc)
 local opt = vim.opt
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.tabstop = 2
-opt.autoindent = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.wrap = false
-opt.number = true
 opt.cursorline = true
-opt.incsearch = true
-opt.hlsearch = true
-opt.laststatus = 2
-opt.showcmd = true
-opt.showmode = true
-opt.ruler = true
-opt.cmdheight = 1
+opt.expandtab = true
+opt.ignorecase = true
 opt.joinspaces = false
-opt.backup = true
-opt.backupdir = { vim.fn.expand("~/.local/share/nvim/backup//"), "." }
+opt.laststatus = 3
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 8
+opt.shiftwidth = 2
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.tabstop = 2
+opt.termguicolors = true
 opt.undofile = true
+opt.wrap = false
 
 -- Keymaps
 local map = vim.keymap.set
@@ -66,12 +109,10 @@ map("n", "g*", "g*zz")
 map("n", "g#", "g#zz")
 map("n", "<Leader>h", ":set hls!<CR>")
 map("n", "<Leader>i", ":set ignorecase!<CR>")
-map("n", "<Leader>l", ":set number!<CR>")
-map("n", "<Leader>n", ":set number!<CR>")
 map("n", "<Leader>p", ":set paste!<CR>")
 map("n", "<Leader>c", ":set cursorline!<CR>")
-map("n", "<C-n>", ":NvimTreeToggle<CR>")
-map("n", "<C-h>", "<C-w><C-h>")
-map("n", "<C-j>", "<C-w><C-j>")
-map("n", "<C-k>", "<C-w><C-k>")
-map("n", "<C-l>", "<C-w><C-l>")
+map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
+map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
+map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
+-- Ctrl+h/j/k/l handled by vim-tmux-navigator (navigates both nvim splits and tmux panes)

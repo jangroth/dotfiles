@@ -1,0 +1,105 @@
+# neovim
+
+## Leader & general
+
+Leader key is `Space`.
+
+| Key          | Action                        |
+|--------------|-------------------------------|
+| `Space+e`    | Toggle file explorer (nvim-tree) |
+| `Space+h`    | Toggle search highlight       |
+| `Space+i`    | Toggle ignore case            |
+| `Space+p`    | Toggle paste mode             |
+| `Space+c`    | Toggle cursor line highlight  |
+
+## File finding (Telescope)
+
+| Key          | Action                        |
+|--------------|-------------------------------|
+| `Space+ff`   | Find files by name            |
+| `Space+fg`   | Live grep (search file contents) |
+| `Space+fb`   | Browse open buffers           |
+
+Inside Telescope: type to filter, `↑/↓` or `Ctrl+k/j` to move, `Enter` to open, `Ctrl+v` for vertical split, `Ctrl+x` for horizontal split.
+
+Note: live grep requires `ripgrep` (`brew install ripgrep`).
+
+## File explorer (nvim-tree)
+
+| Key     | Action                        |
+|---------|-------------------------------|
+| `Enter` | Open file                     |
+| `v`     | Open in vertical split        |
+| `i`     | Open in horizontal split      |
+| `s`     | Open with system default app  |
+| `a`     | Create new file               |
+| `d`     | Delete file                   |
+| `r`     | Rename file                   |
+
+## Splits & pane navigation
+
+| Key            | Action                                      |
+|----------------|---------------------------------------------|
+| `:vs`          | Vertical split                              |
+| `:sp`          | Horizontal split                            |
+| `Ctrl+h/j/k/l` | Move between splits and tmux panes          |
+
+## LSP
+
+| Key    | Action                        |
+|--------|-------------------------------|
+| `gd`   | Go to definition              |
+| `gr`   | Find references               |
+| `K`    | Hover documentation           |
+| `[d`   | Previous diagnostic           |
+| `]d`   | Next diagnostic               |
+
+## Commenting (Comment.nvim)
+
+| Key   | Action                        |
+|-------|-------------------------------|
+| `gcc` | Toggle comment on current line |
+| `gc`  | Toggle comment on selection (visual mode) |
+
+## Search
+
+Search results are always centered (`n`, `N`, `*`, `#` all auto-`zz`).
+
+| Key | Action                                  |
+|-----|-----------------------------------------|
+| `*` | Search for word under cursor (forward)  |
+| `#` | Search for word under cursor (backward) |
+
+## Marks and jumps
+
+| Key        | Action                                  |
+|------------|-----------------------------------------|
+| `ma`       | Set mark `a` at cursor (any letter a–z) |
+| `'a`       | Jump to line of mark `a`               |
+| `` `a ``   | Jump to exact position of mark `a`     |
+| `'.`       | Jump to position of last edit          |
+| `Ctrl+O`   | Jump back (older position)             |
+| `Ctrl+I`   | Jump forward (newer position)          |
+
+Tip: after searching or jumping to a definition, `Ctrl+O` brings you right back.
+
+## Useful motions
+
+| Key      | Action                                          |
+|----------|-------------------------------------------------|
+| `ci"`    | Change inside quotes                            |
+| `ca(`    | Change around parentheses (includes the parens) |
+| `dit`    | Delete inside HTML/XML tag                      |
+| `=G`     | Re-indent from cursor to end of file            |
+| `Ctrl+A` | Increment number under cursor                   |
+| `Ctrl+X` | Decrement number under cursor                   |
+
+## Macros
+
+| Key   | Action                            |
+|-------|-----------------------------------|
+| `qa`  | Start recording into register `a` |
+| `q`   | Stop recording                    |
+| `@a`  | Replay macro `a`                  |
+| `@@`  | Repeat last replayed macro        |
+| `5@a` | Replay macro `a` five times       |
