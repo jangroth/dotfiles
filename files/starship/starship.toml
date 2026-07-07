@@ -6,7 +6,7 @@ style = 'yellow'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [character]
-success_symbol = '[➤](bold green) '
+success_symbol = '[➤](bold dark_blue) '
 error_symbol = '[✖](bold red) '
 
 [docker_context]
