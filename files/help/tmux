@@ -4,18 +4,20 @@
 
 ## Sessions
 
-| Key                   | Action                          |
-|-----------------------|---------------------------------|
-| `tmux new -s name`    | Create a named session          |
-| `tmux attach`         | Attach to last session          |
-| `tmux attach -t name` | Attach to a named session       |
-| `prefix + d`          | Detach from tmux                |
-| `prefix + $`          | Rename session                  |
-| `prefix + s`          | List sessions (interactive)     |
-| `prefix + (`          | Switch to previous session      |
-| `prefix + )`          | Switch to next session          |
-| `prefix + Ctrl+S`     | Save environment (resurrect)    |
-| `prefix + Ctrl+R`     | Restore environment (resurrect) |
+| Key                      | Action                          |
+|--------------------------|---------------------------------|
+| `tmux new -s name`       | Create a named session          |
+| `tmux attach`            | Attach to last session          |
+| `tmux attach -t name`    | Attach to a named session       |
+| `tmux list-sessions`     | List sessions                   |
+| `tmux kill-session -t 1` | Kill session 1                  |
+| `prefix + d`             | Detach from tmux                |
+| `prefix + $`             | Rename session                  |
+| `prefix + s`             | List sessions (interactive)     |
+| `prefix + (`             | Switch to previous session      |
+| `prefix + )`             | Switch to next session          |
+| `prefix + Ctrl+S`        | Save environment (resurrect)    |
+| `prefix + Ctrl+R`        | Restore environment (resurrect) |
 
 Within the session list (`prefix + s`): `x` to delete, `t` to tag.
 
