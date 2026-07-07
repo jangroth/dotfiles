@@ -1,6 +1,32 @@
 # vim
 
-> Leader key is `\`
+## To add
+- neovim
+- :scriptnames
+- > Leader key is `\`
+
+## Macros
+
+**Ad-hoc macros** — record and replay any sequence of commands:
+
+| Key   | Action                              |
+|-------|-------------------------------------|
+| `qa`  | Start recording into register `a`   |
+| `q`   | Stop recording                      |
+| `@a`  | Replay macro `a`                    |
+| `@@`  | Repeat last replayed macro          |
+| `5@a` | Replay macro `a` five times         |
+
+**Predefined macros** (operate on word at cursor):
+
+| Key | Action                                        |
+|-----|-----------------------------------------------|
+| `@i` | Wrap word in markdown italics — `*word*`     |
+| `@b` | Wrap word in markdown bold — `**word**`      |
+| `@c` | Wrap word in markdown backtick — `` `word` `` |
+| `@s` | Delete trailing space on current line        |
+| `@S` | Delete all trailing spaces in file           |
+
 
 ## Leader bindings
 
@@ -52,28 +78,6 @@ Search results are always centered (`n`, `N`, `*`, `#` all auto-`zz`).
 | `:jumps` | Show full jump list         |
 
 Tip: after searching or jumping to a definition, `Ctrl+O` brings you right back.
-
-## Macros
-
-**Ad-hoc macros** — record and replay any sequence of commands:
-
-| Key   | Action                              |
-|-------|-------------------------------------|
-| `qa`  | Start recording into register `a`   |
-| `q`   | Stop recording                      |
-| `@a`  | Replay macro `a`                    |
-| `@@`  | Repeat last replayed macro          |
-| `5@a` | Replay macro `a` five times         |
-
-**Predefined macros** (operate on word at cursor):
-
-| Key | Action                                        |
-|-----|-----------------------------------------------|
-| `@i` | Wrap word in markdown italics — `*word*`     |
-| `@b` | Wrap word in markdown bold — `**word**`      |
-| `@c` | Wrap word in markdown backtick — `` `word` `` |
-| `@s` | Delete trailing space on current line        |
-| `@S` | Delete all trailing spaces in file           |
 
 ## Useful motions for quick edits
 
