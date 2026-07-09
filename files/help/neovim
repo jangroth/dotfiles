@@ -17,7 +17,9 @@ Leader key is `Space`.
 | Key          | Action                        |
 |--------------|-------------------------------|
 | `Space+ff`   | Find files by name            |
+| `Space+fF`   | Find files by name, including gitignored |
 | `Space+fg`   | Live grep (search file contents) |
+| `Space+fG`   | Live grep, including gitignored content |
 | `Space+fb`   | Browse open buffers           |
 
 Inside Telescope: type to filter, `↑/↓` or `Ctrl+k/j` to move, `Enter` to open, `Ctrl+v` for vertical split, `Ctrl+x` for horizontal split.
@@ -35,6 +37,10 @@ Note: live grep requires `ripgrep` (`brew install ripgrep`).
 | `a`     | Create new file               |
 | `d`     | Delete file                   |
 | `r`     | Rename file                   |
+| `y`     | Copy filename                  |
+| `Y`     | Copy relative path             |
+| `gy`    | Copy absolute path             |
+| `I`     | Toggle visibility of gitignored files (shown by default) |
 
 ## Splits & pane navigation
 
@@ -43,6 +49,7 @@ Note: live grep requires `ripgrep` (`brew install ripgrep`).
 | `:vs`          | Vertical split                              |
 | `:sp`          | Horizontal split                            |
 | `Ctrl+h/j/k/l` | Move between splits and tmux panes          |
+| `Ctrl+w` then `<`/`>` | Shrink / widen the focused split     |
 
 ## LSP
 

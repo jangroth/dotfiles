@@ -6,7 +6,8 @@
 echo 'Configuring neovim...'
 confirm_binaries "git" "nvim"
 
-mkdir -p "$HOME/.config/nvim"
+mkdir -p "$HOME/.config/nvim/lua"
 cp -f "${DOT_ROOT}/files/nvim/init.lua" "$HOME/.config/nvim/init.lua"
+cp -Rf "${DOT_ROOT}/files/nvim/lua/." "$HOME/.config/nvim/lua/"
 
 echo "-> neovim setup finished."
