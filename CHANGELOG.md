@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-07-10]
+
+### Changed
+
+- Add k9s configuration with Nord theme and transparent background ([#111](../../pull/111))
+
 ## [2026-07-09]
 
 ### Changed
