@@ -12,6 +12,7 @@ My dotfiles for macOS and Linux.
 - **git** — global config
 - **vscode** — editor settings
 - **ghostty** — terminal emulator config
+- **k9s** — Kubernetes TUI (Nord theme, transparent background)
 
 ## Setup
 
@@ -35,6 +36,7 @@ Or run individual scripts:
 ./scripts/40_setup_git.sh
 ./scripts/50_setup_vscode.sh
 ./scripts/60_setup_ghostty.sh
+./scripts/70_setup_k9s.sh
 ```
 
 ## Linting

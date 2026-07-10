@@ -1,0 +1,76 @@
+k9s:
+  body:
+    fgColor: "#D8DEE9"
+    bgColor: "default"
+    logoColor: "#88C0D0"
+  prompt:
+    fgColor: "#D8DEE9"
+    bgColor: "default"
+    suggestColor: "#5E81AC"
+  info:
+    fgColor: "#8FBCBB"
+    sectionColor: "#D8DEE9"
+  dialog:
+    fgColor: "#D8DEE9"
+    bgColor: "#3B4252"
+    buttonFgColor: "#D8DEE9"
+    buttonBgColor: "#5E81AC"
+    buttonFocusFgColor: "#2E3440"
+    buttonFocusBgColor: "#88C0D0"
+    labelFgColor: "#EBCB8B"
+    fieldFgColor: "#D8DEE9"
+  frame:
+    border:
+      fgColor: "#4C566A"
+      focusColor: "#88C0D0"
+    menu:
+      fgColor: "#D8DEE9"
+      keyColor: "#88C0D0"
+      numKeyColor: "#88C0D0"
+    crumbs:
+      fgColor: "#2E3440"
+      bgColor: "#88C0D0"
+      activeColor: "#81A1C1"
+    status:
+      newColor: "#A3BE8C"
+      modifyColor: "#81A1C1"
+      addColor: "#A3BE8C"
+      errorColor: "#BF616A"
+      highlightcolor: "#88C0D0"
+      killColor: "#BF616A"
+      completedColor: "#4C566A"
+    title:
+      fgColor: "#D8DEE9"
+      bgColor: "default"
+      highlightColor: "#EBCB8B"
+      counterColor: "#81A1C1"
+      filterColor: "#A3BE8C"
+  views:
+    table:
+      fgColor: "#D8DEE9"
+      bgColor: "default"
+      markColor: "#D08770"
+      header:
+        fgColor: "#88C0D0"
+        bgColor: "default"
+        sorterColor: "#EBCB8B"
+    xray:
+      fgColor: "#D8DEE9"
+      bgColor: "default"
+      cursorColor: "#4C566A"
+      graphicColor: "#88C0D0"
+      showIcons: false
+    yaml:
+      keyColor: "#81A1C1"
+      colonColor: "#4C566A"
+      valueColor: "#D8DEE9"
+    helm:
+      keyColor: "#81A1C1"
+      colonColor: "#4C566A"
+      valueColor: "#D8DEE9"
+    logs:
+      fgColor: "#D8DEE9"
+      bgColor: "default"
+      indicator:
+        fgColor: "#D8DEE9"
+        bgColor: "#5E81AC"
