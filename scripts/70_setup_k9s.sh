@@ -21,6 +21,7 @@ fi
 
 mkdir -p "$k9s_config_dir/skins"
 cp -f "$DOT_ROOT/files/k9s/config.yaml" "$k9s_config_dir/config.yaml"
+cp -f "$DOT_ROOT/files/k9s/aliases.yaml" "$k9s_config_dir/aliases.yaml"
 cp -f "$DOT_ROOT/files/k9s/skins/nord.yaml" "$k9s_config_dir/skins/nord.yaml"
 
 echo 'Done configuring k9s.'
