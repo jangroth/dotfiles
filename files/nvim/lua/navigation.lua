@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 
-map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+-- neo-tree: sidebar and floating file explorer
+map("n", "<Leader>e", "<cmd>Neotree toggle position=left<CR>", { desc = "Toggle file explorer (sidebar)" })
+map("n", "<Leader>E", "<cmd>Neotree toggle position=float<CR>", { desc = "Toggle file explorer (floating)" })
 map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
 map("n", "<Leader>fF", function() require("telescope.builtin").find_files({ no_ignore = true }) end)
 map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
@@ -14,14 +16,57 @@ map({ "n", "i", "v" }, "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 
 return {
     {
-        "nvim-tree/nvim-tree.lua", -- file explorer sidebar
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = { filters = { git_ignored = false }, update_focused_file = { enable = true } },
+        "nvim-neo-tree/neo-tree.nvim", -- file explorer sidebar and floating panel
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+            popup_border_style = "rounded",
+            sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+            document_symbols = {
+                follow_cursor = true,
+            },
+            source_selector = {
+                winbar = true,
+                sources = {
+                    { source = "filesystem",       display_name = " Files" },
+                    { source = "buffers",          display_name = " Buffers" },
+                    { source = "git_status",       display_name = " Git" },
+                    { source = "document_symbols", display_name = " Symbols" },
+                },
+            },
+            window = {
+                mappings = {
+                    ["<Tab>"] = "next_source",
+                    ["<S-Tab>"] = "prev_source",
+                },
+            },
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
+                },
+                follow_current_file = { enabled = true },
+            },
+        },
     },
     {
         "nvim-telescope/telescope.nvim", -- fuzzy finder for files, grep, buffers, git history
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
+    },
+    {
+        "folke/flash.nvim", -- enhanced f/F/t/T motions with labeled jump targets
+        opts = {
+            modes = {
+                char = { enabled = true, jump_labels = true },
+                search = { enabled = false },
+            },
+        },
     },
     { "christoomey/vim-tmux-navigator" }, -- seamless navigation between neovim splits and tmux panes
 }
