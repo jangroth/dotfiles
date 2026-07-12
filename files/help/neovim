@@ -6,11 +6,10 @@ Leader key is `Space`.
 
 | Key          | Action                        |
 |--------------|-------------------------------|
-| `Space+e`    | Toggle file explorer (nvim-tree) |
+| `Space+e`    | Toggle file explorer (sidebar)   |
+| `Space+E`    | Toggle file explorer (floating)  |
 | `Space+h`    | Toggle search highlight       |
 | `Space+i`    | Toggle ignore case            |
-| `Space+p`    | Toggle paste mode             |
-| `Space+c`    | Toggle cursor line highlight  |
 
 ## File finding (Telescope)
 
@@ -26,21 +25,29 @@ Inside Telescope: type to filter, `↑/↓` or `Ctrl+k/j` to move, `Enter` to op
 
 Note: live grep requires `ripgrep` (`brew install ripgrep`).
 
-## File explorer (nvim-tree)
+## File explorer (neo-tree)
+
+Hidden and git-ignored files are shown by default. Use `H` to toggle them.
+
+Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in the winbar, or cycle with `Tab`/`Shift+Tab` from inside the tree window.
 
 | Key     | Action                        |
 |---------|-------------------------------|
+| `Tab`   | Next source                   |
+| `Shift+Tab` | Previous source            |
 | `Enter` | Open file                     |
-| `v`     | Open in vertical split        |
-| `i`     | Open in horizontal split      |
-| `s`     | Open with system default app  |
-| `a`     | Create new file               |
+| `s`     | Open in vertical split        |
+| `S`     | Open in horizontal split      |
+| `a`     | Create new file or directory  |
 | `d`     | Delete file                   |
 | `r`     | Rename file                   |
-| `y`     | Copy filename                  |
-| `Y`     | Copy relative path             |
-| `gy`    | Copy absolute path             |
-| `I`     | Toggle visibility of gitignored files (shown by default) |
+| `y`     | Copy to clipboard             |
+| `x`     | Cut to clipboard              |
+| `p`     | Paste from clipboard          |
+| `gy`    | Copy absolute path            |
+| `H`     | Toggle hidden/gitignored files |
+| `R`     | Refresh                       |
+| `?`     | Show all keybindings          |
 
 ## Splits & pane navigation
 
