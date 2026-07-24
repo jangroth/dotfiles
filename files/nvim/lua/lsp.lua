@@ -5,7 +5,7 @@ return {
         dependencies = { "neovim/nvim-lspconfig" },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "ruff", "yamlls" },
+                ensure_installed = { "pyright", "ruff", "yamlls", "marksman" },
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup({})

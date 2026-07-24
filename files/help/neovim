@@ -1,4 +1,4 @@
-# neovim
+
 
 ## Leader & general
 
@@ -10,6 +10,7 @@ Leader key is `Space`.
 | `Space+E`    | Toggle file explorer (floating)  |
 | `Space+h`    | Toggle search highlight       |
 | `Space+i`    | Toggle ignore case            |
+| `Space+w`    | Toggle word wrap              |
 
 ## File finding (Telescope)
 
@@ -41,9 +42,7 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 | `a`     | Create new file or directory  |
 | `d`     | Delete file                   |
 | `r`     | Rename file                   |
-| `y`     | Copy to clipboard             |
-| `x`     | Cut to clipboard              |
-| `p`     | Paste from clipboard          |
+| `P`     | Preview file                  |
 | `gy`    | Copy absolute path            |
 | `H`     | Toggle hidden/gitignored files |
 | `R`     | Refresh                       |
@@ -67,6 +66,29 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 | `K`    | Hover documentation           |
 | `[d`   | Previous diagnostic           |
 | `]d`   | Next diagnostic               |
+
+LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links).
+
+## Markdown (markview.nvim)
+
+Headings, lists, tables, and code blocks render in-buffer automatically when opening a `.md` file — no separate preview window needed.
+
+| Key         | Action                        |
+|-------------|--------------------------------|
+| `Space+mv`  | Toggle markdown preview rendering |
+
+## Git changes (gitsigns)
+
+Sign column shows `+`/`~`/`_` for added/changed/removed lines. Current line blame is always on.
+
+| Key         | Action                        |
+|-------------|--------------------------------|
+| `]c`        | Next git hunk                 |
+| `[c`        | Previous git hunk              |
+| `Space+gp`  | Preview hunk diff              |
+| `Space+gs`  | Stage hunk                     |
+| `Space+gr`  | Reset hunk                     |
+| `Space+gb`  | Toggle current line blame      |
 
 ## Commenting (Comment.nvim)
 

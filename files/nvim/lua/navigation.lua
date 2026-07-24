@@ -28,6 +28,11 @@ return {
             sources = { "filesystem", "buffers", "git_status", "document_symbols" },
             document_symbols = {
                 follow_cursor = true,
+                window = {
+                    mappings = {
+                        ["<space>"] = { "toggle_node", nowait = true }, -- expand instantly, don't wait for a leader sequence
+                    },
+                },
             },
             source_selector = {
                 winbar = true,
