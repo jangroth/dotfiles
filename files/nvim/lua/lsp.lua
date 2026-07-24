@@ -4,23 +4,25 @@ return {
         "williamboman/mason-lspconfig.nvim", -- bridges mason and nvim-lspconfig; auto-installs and configures LSPs
         dependencies = { "neovim/nvim-lspconfig" },
         config = function()
+            -- Per-server overrides via the native vim.lsp.config API; mason-lspconfig's
+            -- automatic_enable picks these up when it calls vim.lsp.enable() for installed servers.
+            vim.lsp.config("yamlls", {
+                settings = {
+                    yaml = {
+                        schemaStore = { enable = false, url = "" },
+                        schemas = require("schemastore").yaml.schemas(),
+                    },
+                },
+            })
+            vim.lsp.config("ruff", {
+                init_options = {
+                    settings = {
+                        lint = { extendSelect = { "I" } }, -- also flag unsorted/unused imports (isort rules)
+                    },
+                },
+            })
             require("mason-lspconfig").setup({
                 ensure_installed = { "pyright", "ruff", "yamlls" },
-                handlers = {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup({})
-                    end,
-                    ["yamlls"] = function()
-                        require("lspconfig").yamlls.setup({
-                            settings = {
-                                yaml = {
-                                    schemaStore = { enable = false, url = "" },
-                                    schemas = require("schemastore").yaml.schemas(),
-                                },
-                            },
-                        })
-                    end,
-                },
             })
         end,
     },

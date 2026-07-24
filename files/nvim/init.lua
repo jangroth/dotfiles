@@ -17,7 +17,7 @@ vim.g.mapleader = " "
 
 -- Plugins (collected from lua/*.lua modules)
 local plugins = {}
-for _, mod in ipairs({ "ui", "navigation", "editor", "treesitter", "lsp", "format" }) do
+for _, mod in ipairs({ "ui", "navigation", "editor", "treesitter", "lsp", "format", "debugging" }) do
     vim.list_extend(plugins, require(mod))
 end
 require("lazy").setup(plugins)

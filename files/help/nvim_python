@@ -1,0 +1,21 @@
+
+
+## Python in neovim
+
+LSP navigation (`gd`, `gr`, `K`, `[d`, `]d`) works the same as any other filetype — see `dfh neovim`.
+
+## Linting & formatting
+
+Linting (ruff, including isort `I` rules) and formatting (`ruff_fix` + `ruff_format`) run automatically — diagnostics update live as you type, and the buffer is formatted on save. No keys needed.
+
+## Debugging (nvim-dap)
+
+| Key         | Action                        |
+|-------------|--------------------------------|
+| `Space+db`  | Toggle breakpoint             |
+| `Space+dc`  | Continue / start debugging    |
+| `Space+do`  | Step over                     |
+| `Space+di`  | Step into                     |
+| `Space+dO`  | Step out                      |
+| `Space+dt`  | Terminate debug session       |
+| `Space+du`  | Toggle debug UI                |
