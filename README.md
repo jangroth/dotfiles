@@ -8,7 +8,7 @@ My dotfiles for macOS and Linux.
 - **starship** — shell prompt
 - **tmux** — terminal multiplexer
 - **vim** — editor
-- **neovim** — editor (lazy.nvim plugin manager, nord theme, telescope, neo-tree, flash.nvim, mason/LSP, conform formatting)
+- **neovim** — editor (lazy.nvim plugin manager, nord theme, telescope, neo-tree, flash.nvim, mason/LSP, conform formatting, nvim-dap debugging)
 - **git** — global config
 - **vscode** — editor settings
 - **ghostty** — terminal emulator config
