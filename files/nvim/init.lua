@@ -24,5 +24,8 @@ require("lazy").setup(plugins)
 
 vim.cmd.colorscheme("nord")
 
+-- neo-tree's expand/collapse arrow defaults to dim gray, hard to see against nord's background
+vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#88C0D0", bold = true })
+
 -- Core editor settings and keymaps
 require("options")
