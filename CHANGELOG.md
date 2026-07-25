@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-07-25]
+
+### Changed
+
+- Add network speed to tmux status bar ([#115](../../pull/115))
+
 ## [2026-07-12]
 
 ### Changed
