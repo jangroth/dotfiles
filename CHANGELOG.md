@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Replace nvim-tree with neo-tree file explorer ([#113](../../pull/113))
 
+## [2026-07-12]
+
+### Changed
+
+- Replace nvim-tree with neo-tree file explorer ([#113](../../pull/113))
+
 ## [2026-07-10]
 
 ### Changed
