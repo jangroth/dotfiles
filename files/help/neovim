@@ -26,6 +26,16 @@ Inside Telescope: type to filter, `↑/↓` or `Ctrl+k/j` to move, `Enter` to op
 
 Note: live grep requires `ripgrep` (`brew install ripgrep`).
 
+## Fast file switching (harpoon)
+
+Working set of a handful of files for the current task, separate from Telescope/neo-tree.
+
+| Key         | Action                        |
+|-------------|--------------------------------|
+| `Space+a`   | Add current file to harpoon list |
+| `Ctrl+e`    | Toggle harpoon quick menu      |
+| `Space+1`-`4` | Jump to harpoon file 1-4     |
+
 ## File explorer (neo-tree)
 
 Hidden and git-ignored files are shown by default. Use `H` to toggle them.
@@ -69,6 +79,25 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 
 LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links).
 
+## Diagnostics list (trouble.nvim)
+
+Project-wide list of errors/warnings, instead of hopping buffer-by-buffer with `[d`/`]d`.
+
+| Key          | Action                        |
+|--------------|-------------------------------|
+| `Space+xx`   | Toggle diagnostics (workspace) |
+| `Space+xX`   | Toggle diagnostics (current buffer) |
+
+## Refactoring (refactoring.nvim)
+
+Select the code in visual mode first, then invoke.
+
+| Key         | Action                        |
+|-------------|--------------------------------|
+| `Space+re`  | Extract function (visual mode) |
+| `Space+rv`  | Extract variable (visual mode) |
+| `Space+ri`  | Inline variable                |
+
 ## Markdown (markview.nvim)
 
 Headings, lists, tables, and code blocks render in-buffer automatically when opening a `.md` file — no separate preview window needed.
@@ -76,6 +105,14 @@ Headings, lists, tables, and code blocks render in-buffer automatically when ope
 | Key         | Action                        |
 |-------------|--------------------------------|
 | `Space+mv`  | Toggle markdown preview rendering |
+
+## Outline (aerial.nvim)
+
+Headings/symbols sidebar for jumping around long markdown docs (runbooks, READMEs) or source files.
+
+| Key        | Action                        |
+|------------|-------------------------------|
+| `Space+o`  | Toggle outline sidebar        |
 
 ## Git changes (gitsigns)
 

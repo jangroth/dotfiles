@@ -1,6 +1,16 @@
 return {
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} }, -- add/change/delete surrounding pairs (brackets, quotes, tags)
     {
+        "ThePrimeagen/refactoring.nvim", -- extract function/variable, inline variable
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+        opts = {},
+        keys = {
+            { "<Leader>re", function() require("refactoring").refactor("Extract Function") end, mode = "v", desc = "Extract function" },
+            { "<Leader>rv", function() require("refactoring").refactor("Extract Variable") end, mode = "v", desc = "Extract variable" },
+            { "<Leader>ri", function() require("refactoring").refactor("Inline Variable") end, mode = { "n", "v" }, desc = "Inline variable" },
+        },
+    },
+    {
         "lewis6991/gitsigns.nvim", -- git diff indicators in the sign column, hunk navigation and staging
         opts = {
             current_line_blame = true,
