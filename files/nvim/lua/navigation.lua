@@ -74,4 +74,37 @@ return {
         },
     },
     { "christoomey/vim-tmux-navigator" }, -- seamless navigation between neovim splits and tmux panes
+    {
+        "ThePrimeagen/harpoon", -- fast switching between a small working set of files (fewer than 5) for the current task
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function() require("harpoon"):setup() end,
+        keys = (function()
+            local keys = {
+                { "<Leader>a", function() require("harpoon"):list():add() end, desc = "Harpoon: add file" },
+                { "<C-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon: toggle menu" },
+            }
+            for i = 1, 4 do
+                table.insert(keys, { "<Leader>" .. i, function() require("harpoon"):list():select(i) end, desc = "Harpoon: go to " .. i })
+            end
+            return keys
+        end)(),
+    },
+    {
+        "folke/trouble.nvim", -- project-wide diagnostics/quickfix/loclist list (Problems panel equivalent)
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
+        keys = {
+            { "<Leader>xx", "<cmd>Trouble diagnostics toggle<CR>", desc = "Diagnostics (workspace)" },
+            { "<Leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Diagnostics (buffer)" },
+        },
+    },
+    {
+        "stevearc/aerial.nvim", -- headings/symbols outline sidebar; used for jumping around long markdown docs
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        opts = {},
+        keys = {
+            { "<Leader>o", "<cmd>AerialToggle<CR>", desc = "Toggle outline (symbols/headings)" },
+        },
+    },
 }
