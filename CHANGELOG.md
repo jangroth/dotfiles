@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-07-27]
+
+### Changed
+
+- Revert tmux network speed status segment ([#116](../../pull/116))
+
 ## [2026-07-25]
 
 ### Changed
