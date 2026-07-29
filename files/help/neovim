@@ -24,11 +24,7 @@ Leader key is `Space`.
 
 Inside Telescope: type to filter, `↑/↓` or `Ctrl+k/j` to move, `Enter` to open, `Ctrl+v` for vertical split, `Ctrl+x` for horizontal split.
 
-Note: live grep requires `ripgrep` (`brew install ripgrep`).
-
 ## Fast file switching (harpoon)
-
-Working set of a handful of files for the current task, separate from Telescope/neo-tree.
 
 | Key         | Action                        |
 |-------------|--------------------------------|
@@ -78,6 +74,18 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 | `]d`   | Next diagnostic               |
 
 LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links).
+
+## Completion (nvim-cmp)
+
+Insert mode only, triggers automatically as you type. Sources: LSP, file paths, buffer words.
+
+| Key          | Action                        |
+|--------------|--------------------------------|
+| `Tab`        | Next item in menu (else normal Tab) |
+| `Shift+Tab`  | Previous item in menu (else normal Tab) |
+| `Enter`      | Confirm — only if an item was explicitly selected |
+| `Ctrl+Space` | Force-open completion menu    |
+| `Ctrl+e`     | Abort/close menu              |
 
 ## Diagnostics list (trouble.nvim)
 
