@@ -1,3 +1,11 @@
+local map = vim.keymap.set
+map("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
+map("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
+
 return {
 	{ "williamboman/mason.nvim", opts = {} }, -- installs and manages language servers
 	{

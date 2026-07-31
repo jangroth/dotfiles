@@ -70,8 +70,8 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 | `gd`   | Go to definition              |
 | `gr`   | Find references               |
 | `K`    | Hover documentation           |
-| `[d`   | Previous diagnostic           |
-| `]d`   | Next diagnostic               |
+| `[d`   | Previous diagnostic (current window) |
+| `]d`   | Next diagnostic (current window)     |
 
 LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links).
 
@@ -89,7 +89,7 @@ Insert mode only, triggers automatically as you type. Sources: LSP, file paths, 
 
 ## Diagnostics list (trouble.nvim)
 
-Project-wide list of errors/warnings, instead of hopping buffer-by-buffer with `[d`/`]d`.
+Project-wide list of errors/warnings across all buffers; `[d`/`]d` navigate within the current window only.
 
 | Key          | Action                        |
 |--------------|-------------------------------|
