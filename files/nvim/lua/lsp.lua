@@ -1,3 +1,14 @@
+local map = vim.keymap.set
+
+-- Per-window diagnostic navigation; unlike Trouble's jump list, these always
+-- operate on the current window regardless of split layout.
+map("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
+map("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
+
 return {
 	{ "williamboman/mason.nvim", opts = {} }, -- installs and manages language servers
 	{
