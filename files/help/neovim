@@ -73,7 +73,7 @@ Sources: filesystem, buffers, git status, document symbols (LSP). Click a tab in
 | `[d`   | Previous diagnostic           |
 | `]d`   | Next diagnostic               |
 
-LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links).
+LSP servers: `pyright`/`ruff` (Python), `yamlls` (YAML), `marksman` (Markdown — go-to-definition/completion for links and references, diagnostics for broken links), `terraformls` (Terraform).
 
 ## Completion (nvim-cmp)
 
