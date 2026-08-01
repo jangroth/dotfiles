@@ -37,7 +37,7 @@ return {
 				},
 			})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "pyright", "ruff", "yamlls", "marksman" },
+				ensure_installed = { "marksman", "pyright", "ruff", "terraformls", "yamlls" },
 				handlers = {
 					function(server_name)
 						require("lspconfig")[server_name].setup({})
