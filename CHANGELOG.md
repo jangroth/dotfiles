@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-08-01]
+
+### Changed
+
+- feat: add Terraform support to nvim ([#124](../../pull/124))
+
 ## [2026-07-31]
 
 ### Changed
