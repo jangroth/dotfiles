@@ -1,5 +1,6 @@
 -- Editor settings (mirrors vimrc)
 local opt = vim.opt
+opt.autowriteall = true -- write buffers automatically on events like buffer switch, :make, window change
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 opt.expandtab = true
