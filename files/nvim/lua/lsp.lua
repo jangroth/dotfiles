@@ -36,33 +36,16 @@ return {
 					},
 				},
 			})
+			vim.lsp.config("pyright", {
+				before_init = function(_, config)
+					local venv_python = config.root_dir .. "/.venv/bin/python"
+					if vim.uv.fs_stat(venv_python) then
+						config.settings.python.pythonPath = venv_python
+					end
+				end,
+			})
 			require("mason-lspconfig").setup({
 				ensure_installed = { "marksman", "pyright", "ruff", "terraformls", "yamlls" },
-				handlers = {
-					function(server_name)
-						require("lspconfig")[server_name].setup({})
-					end,
-					["pyright"] = function()
-						require("lspconfig").pyright.setup({
-							before_init = function(_, config)
-								local venv_python = config.root_dir .. "/.venv/bin/python"
-								if vim.uv.fs_stat(venv_python) then
-									config.settings.python.pythonPath = venv_python
-								end
-							end,
-						})
-					end,
-					["yamlls"] = function()
-						require("lspconfig").yamlls.setup({
-							settings = {
-								yaml = {
-									schemaStore = { enable = false, url = "" },
-									schemas = require("schemastore").yaml.schemas(),
-								},
-							},
-						})
-					end,
-				},
 			})
 		end,
 	},
