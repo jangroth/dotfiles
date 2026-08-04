@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- fix: replace autowriteall with auto-save.nvim ([#128](../../pull/128))
+
+## [2026-08-04]
+
+### Changed
+
 - feat: auto-write nvim buffers to reduce need for :w ([#126](../../pull/126))
 
 ## [2026-08-01]
