@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- fix: migrate pyright lsp config off dead mason-lspconfig handlers ([#129](../../pull/129))
+
+## [2026-08-04]
+
+### Changed
+
 - fix: replace autowriteall with auto-save.nvim ([#128](../../pull/128))
 
 ## [2026-08-04]
