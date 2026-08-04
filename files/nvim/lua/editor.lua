@@ -1,6 +1,17 @@
 return {
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} }, -- add/change/delete surrounding pairs (brackets, quotes, tags)
     {
+        "Pocco81/auto-save.nvim", -- auto-saves on InsertLeave/TextChanged, removing the need for :w; save runs through :w so conform's format_on_save still applies
+        event = { "InsertLeave", "TextChanged" },
+        opts = {
+            condition = function(buf)
+                -- exclude harpoon's quick-menu buffer: it has no file backing, and an
+                -- auto-save mid-edit triggers harpoon's own write handler, closing the popup
+                return vim.fn.getbufvar(buf, "&modifiable") == 1 and vim.bo[buf].filetype ~= "harpoon"
+            end,
+        },
+    },
+    {
         "ThePrimeagen/refactoring.nvim", -- extract function/variable, inline variable
         dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
         opts = {},
