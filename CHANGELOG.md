@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-08-05]
+
+### Changed
+
+- fix: stop auto-save from firing on undo, breaking undo ([#130](../../pull/130))
+
 ## [2026-08-04]
 
 ### Changed
