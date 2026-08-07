@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-08-07]
+
+### Changed
+
+- feat: enable pyright autoimport completions for python ([#131](../../pull/131))
+
 ## [2026-08-05]
 
 ### Changed
