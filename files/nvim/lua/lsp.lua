@@ -37,6 +37,13 @@ return {
 				},
 			})
 			vim.lsp.config("pyright", {
+				-- Offer unimported symbols in completion; nvim-cmp applies the resulting
+				-- additionalTextEdits (the import statement) automatically on confirm.
+				settings = {
+					python = {
+						analysis = { autoImportCompletions = true },
+					},
+				},
 				before_init = function(_, config)
 					local venv_python = config.root_dir .. "/.venv/bin/python"
 					if vim.uv.fs_stat(venv_python) then
