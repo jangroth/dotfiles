@@ -58,6 +58,7 @@ fi
 
 # golang
 if command -v go &> /dev/null; then
+  unset GOROOT
   export GOROOT="$(go env GOROOT)"
   export GOPATH="$HOME/go"
   export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
