@@ -1,13 +1,10 @@
 return {
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} }, -- add/change/delete surrounding pairs (brackets, quotes, tags)
     {
-        "Pocco81/auto-save.nvim", -- auto-saves on InsertLeave, removing the need for :w; save runs through :w so conform's format_on_save still applies
-        event = "InsertLeave",
+        "Pocco81/auto-save.nvim", -- auto-saves on focus/buffer switch, removing the need for :w; save runs through :w so conform's format_on_save still applies
+        event = "VeryLazy",
         opts = {
-            -- TextChanged also fires on undo/redo; combined with conform's non-undojoined
-            -- format_on_save, that turns every `u` into a save+reformat that fights the undo
-            -- itself, making undo look broken. InsertLeave alone avoids the loop.
-            trigger_events = { "InsertLeave" },
+            trigger_events = { "FocusLost", "BufLeave" },
             condition = function(buf)
                 -- exclude harpoon's quick-menu buffer: it has no file backing, and an
                 -- auto-save mid-edit triggers harpoon's own write handler, closing the popup
