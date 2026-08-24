@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-08-24]
+
+### Changed
+
+- fix: switch auto-save trigger from InsertLeave to FocusLost/BufLeave ([#133](../../pull/133))
+
 ## [2026-08-21]
 
 ### Changed
