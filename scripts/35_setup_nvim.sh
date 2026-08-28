@@ -4,7 +4,7 @@
 . "$(dirname "$0")/_config.sh"
 
 echo 'Configuring neovim...'
-confirm_binaries "git" "nvim"
+confirm_binaries "git" "nvim" "tree-sitter"
 
 mkdir -p "$HOME/.config/nvim/lua"
 cp -f "${DOT_ROOT}/files/nvim/init.lua" "$HOME/.config/nvim/init.lua"
