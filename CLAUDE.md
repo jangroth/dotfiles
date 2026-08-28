@@ -16,6 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development conventions
 
 - When implementing CLI commands or shell functions, ask clarifying questions about the desired interface (argument format, completion behavior) before coding.
+- Comments should describe current behavior/purpose, not the history of how the code got here (e.g. avoid "the old API used to...", "this replaces X because Y") — that belongs in the commit message.
 
 ## What this repo is
 
