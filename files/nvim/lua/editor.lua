@@ -14,12 +14,11 @@ return {
     },
     {
         "ThePrimeagen/refactoring.nvim", -- extract function/variable, inline variable
-        dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-        opts = {},
+        dependencies = { "lewis6991/async.nvim", "nvim-treesitter/nvim-treesitter" },
         keys = {
-            { "<Leader>re", function() require("refactoring").refactor("Extract Function") end, mode = "v", desc = "Extract function" },
-            { "<Leader>rv", function() require("refactoring").refactor("Extract Variable") end, mode = "v", desc = "Extract variable" },
-            { "<Leader>ri", function() require("refactoring").refactor("Inline Variable") end, mode = { "n", "v" }, desc = "Inline variable" },
+            { "<Leader>re", function() return require("refactoring").extract_func() end, mode = { "n", "x" }, desc = "Extract function", expr = true },
+            { "<Leader>rv", function() return require("refactoring").extract_var() end, mode = { "n", "x" }, desc = "Extract variable", expr = true },
+            { "<Leader>ri", function() return require("refactoring").inline_var() end, mode = { "n", "x" }, desc = "Inline variable", expr = true },
         },
     },
     {
