@@ -59,4 +59,4 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
-Tracked as GitHub issues with the `todo` label: `gh issue list --label todo`
+Tracked as GitHub issues, always labelled `todo` and `agent-safe` (unambiguous, reversible, PR-only fix — no open design decision, no physical/external-account step): `gh issue list --label todo`
