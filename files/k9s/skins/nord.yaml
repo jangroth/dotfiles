@@ -49,11 +49,14 @@ k9s:
     table:
       fgColor: "#D8DEE9"
       bgColor: "default"
+      cursorFgColor: "#2E3440"
+      cursorBgColor: "#88C0D0"
       markColor: "#D08770"
       header:
         fgColor: "#88C0D0"
         bgColor: "default"
         sorterColor: "#EBCB8B"
+        selectedSortColumnColor: "#EBCB8B"
     xray:
       fgColor: "#D8DEE9"
       bgColor: "default"
