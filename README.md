@@ -69,7 +69,7 @@ make install
 A Claude Code cloud routine ("dotfiles - nightly todo", daily 11:00 UTC) picks up one open issue labelled `agent-safe` and opens a PR for review. Its config lives in the repo:
 
 - `.claude/routines/nightly-todo.md` — the routine's instructions; the routine prompt only points to this file
-- `scripts/cloud/setup.sh` — the cloud environment's setup script; the environment's script only runs `bash "$HOME/dotfiles/scripts/cloud/setup.sh"`
+- `scripts/cloud/setup.sh` — the cloud environment's setup script; the environment's script only runs `bash /home/user/dotfiles/scripts/cloud/setup.sh`
 
 ## Helper functions
 
