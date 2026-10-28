@@ -3,7 +3,13 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias t='tree -A -L 2'
-alias vi='vim'
+
+if command -v nvim &>/dev/null; then
+    alias vi='nvim'
+    alias vim='nvim'
+else
+    alias vi='vim'
+fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
