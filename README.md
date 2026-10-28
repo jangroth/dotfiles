@@ -64,6 +64,13 @@ Then inside the container:
 make install
 ```
 
+## Nightly routine
+
+A Claude Code cloud routine ("dotfiles - nightly todo", daily 11:00 UTC) picks up one open issue labelled `agent-safe` and opens a PR for review. Its config lives in the repo:
+
+- `.claude/routines/nightly-todo.md` — the routine's instructions; the routine prompt only points to this file
+- `scripts/cloud/setup.sh` — the cloud environment's setup script; the environment's script only runs `bash "$HOME/dotfiles/scripts/cloud/setup.sh"`
+
 ## Helper functions
 
 - `dfh [topic]` — dotfiles help; run `dfh` for version info and available topics, `dfh tmux` / `dfh fzf` / `dfh vim` for keybinding references extracted from config files

@@ -32,17 +32,17 @@ check() {
 }
 
 # Shell scripts — bash syntax check
-for f in "$ROOT"/scripts/*.sh; do
+for f in "$ROOT"/scripts/*.sh "$ROOT"/scripts/cloud/*.sh; do
     check "bash -n scripts/$(basename "$f")" bash -n "$f"
 done
 
 # shfmt — formatting check (.sh files only)
-for f in "$ROOT"/scripts/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
+for f in "$ROOT"/scripts/*.sh "$ROOT"/scripts/cloud/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
     check "shfmt: $(basename "$f")" shfmt -d -i 4 "$f"
 done
 
 # static analysis — .sh files only, skipping _config.sh (zsh shebang)
-for f in "$ROOT"/scripts/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
+for f in "$ROOT"/scripts/*.sh "$ROOT"/scripts/cloud/*.sh "$ROOT"/docker/*.sh "$ROOT"/tests/lint.sh; do
     [ "$(basename "$f")" = "_config.sh" ] && continue
     check "shellcheck: $(basename "$f")" shellcheck --exclude=SC1091 "$f"
 done
