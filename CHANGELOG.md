@@ -16,13 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- feat: keep nightly routine prompt and cloud setup script in repo ([#137](../../pull/137))
-
-## [2026-10-28]
-
-### Changed
-
-- feat: keep nightly routine prompt and cloud setup script in repo ([#137](../../pull/137))
+- feat: alias vim to nvim ([#136](../../pull/136))
 
 ## [2026-10-28]
 
@@ -35,18 +29,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - fix: update refactoring.nvim dependency and API for its rewrite ([#134](../../pull/134))
-
-## [2026-08-31]
-
-### Changed
-
-- fix: update refactoring.nvim dependency and API for its rewrite ([#134](../../pull/134))
-
-## [2026-08-24]
-
-### Changed
-
-- fix: switch auto-save trigger from InsertLeave to FocusLost/BufLeave ([#133](../../pull/133))
 
 ## [2026-08-24]
 
@@ -138,18 +120,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Replace nvim-tree with neo-tree file explorer ([#113](../../pull/113))
 
-## [2026-07-12]
-
-### Changed
-
-- Replace nvim-tree with neo-tree file explorer ([#113](../../pull/113))
-
-## [2026-07-12]
-
-### Changed
-
-- Replace nvim-tree with neo-tree file explorer ([#113](../../pull/113))
-
 ## [2026-07-10]
 
 ### Changed
@@ -168,23 +138,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - housekeeping ([#106](../../pull/106))
 
-## [2026-07-07]
-
-### Changed
-
-- housekeeping ([#106](../../pull/106))
-
 ## [2026-07-06]
 
 ### Changed
 
 - feat: expand starship config with Nord theme and update prompt symbols ([#105](../../pull/105))
-
-## [2026-07-06]
-
-### Changed
-
-- Fail fast in lint.sh when required tools are missing ([#103](../../pull/103))
 
 ## [2026-07-06]
 

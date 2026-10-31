@@ -18,27 +18,40 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get latest merged PR
+      - name: Find PR for pushed commit
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pr_json=$(gh pr list --state merged --base main --limit 1 --json number,title,mergedAt)
-          number=$(echo "$pr_json" | jq -r '.[0].number')
-          title=$(echo "$pr_json" | jq -r '.[0].title')
-          merged_at=$(echo "$pr_json" | jq -r '.[0].mergedAt' | cut -c1-10)
+          # Direct pushes to main have no merged PR and are skipped
+          pr_json=$(gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+            --jq '[.[] | select(.merged_at != null and .base.ref == "main")][0] // empty')
+          if [ -z "$pr_json" ]; then
+            echo "No merged PR associated with ${{ github.sha }}; skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          number=$(echo "$pr_json" | jq -r '.number')
+          title=$(echo "$pr_json" | jq -r '.title')
+          merged_at=$(echo "$pr_json" | jq -r '.merged_at' | cut -c1-10)
+          if grep -qF "([#${number}](../../pull/${number}))" CHANGELOG.md; then
+            echo "PR #${number} is already in CHANGELOG.md; skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
           echo "number=$number" >> "$GITHUB_OUTPUT"
           echo "title=$title" >> "$GITHUB_OUTPUT"
           echo "merged_at=$merged_at" >> "$GITHUB_OUTPUT"
 
       - name: Prepend changelog entry
+        if: steps.pr.outputs.skip != 'true'
         env:
           PR_NUMBER: ${{ steps.pr.outputs.number }}
           PR_TITLE: ${{ steps.pr.outputs.title }}
           MERGED_AT: ${{ steps.pr.outputs.merged_at }}
           REPO: ${{ github.repository }}
         run: |
-          entry="## [${MERGED_AT}]\n\n### Changed\n\n- ${PR_TITLE} ([#${PR_NUMBER}](../../pull/${PR_NUMBER}))\n"
           # Insert after the [Unreleased] section header and its blank line
           python3 - <<'EOF'
           import os, re
@@ -54,6 +67,7 @@ jobs:
           EOF
 
       - name: Commit updated changelog
+        if: steps.pr.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
