@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-10-31]
+
+### Changed
+
+- feat: align nightly routine with homekube; document cloud environment ([#138](../../pull/138))
+
 ## [2026-10-28]
 
 ### Changed
