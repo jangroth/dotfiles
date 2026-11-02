@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-11-02]
+
+### Changed
+
+- fix: log the PR that triggered the changelog push, once ([#140](../../pull/140))
+
 ## [2026-10-31]
 
 ### Changed
