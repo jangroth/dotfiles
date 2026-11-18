@@ -59,4 +59,4 @@ Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`wi
 
 ## TODO
 
-Tracked as GitHub issues with the `todo` label: `gh issue list --label todo`
+Tracked as GitHub issues with the triage labels from the user-level `CLAUDE.md`. `ready-for-agent` issues are picked up by the nightly routine.

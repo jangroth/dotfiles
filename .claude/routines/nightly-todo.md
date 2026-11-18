@@ -23,7 +23,7 @@ The authorisation has to be in the routine prompt: the cloud session's permissio
 
 GraphQL is blocked in cloud sessions, so `gh issue list` / `gh pr list` fail; use `gh api` (REST).
 
-1. Fetch open issues labelled `agent-safe`: `gh api "repos/jangroth/dotfiles/issues?state=open&labels=agent-safe&per_page=100" --jq '[.[] | select(.pull_request == null) | {number, title, body}]'`
+1. Fetch open issues labelled `ready-for-agent`: `gh api "repos/jangroth/dotfiles/issues?state=open&labels=ready-for-agent&per_page=100" --jq '[.[] | select(.pull_request == null) | {number, title, body}]'`
 2. Fetch open PRs: `gh api "repos/jangroth/dotfiles/pulls?state=open&per_page=100" --jq '[.[] | {number, branch: .head.ref, body}]'`
 3. Exclude issues already in flight. An issue is in flight if an open PR's branch matches `auto/issue-<number>-*` or its body references it (e.g. `Closes #<number>` or `#<number>`).
 4. Pick one remaining issue at random. If none are eligible, exit cleanly with a summary of what was checked.
