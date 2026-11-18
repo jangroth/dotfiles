@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-11-18]
+
+### Changed
+
+- Switch to shared triage labels ([#142](../../pull/142))
+
 ## [2026-11-02]
 
 ### Changed
