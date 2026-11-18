@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- CLAUDE.md: drop branching rule, now user-level ([#143](../../pull/143))
+
+## [2026-11-18]
+
+### Changed
+
 - Switch to shared triage labels ([#142](../../pull/142))
 
 ## [2026-11-02]
