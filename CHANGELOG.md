@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- CLAUDE.md: drop comment rule, now user-level ([#145](../../pull/145))
+
+## [2026-11-19]
+
+### Changed
+
 - CLAUDE.md: drop push rule, now user-level ([#144](../../pull/144))
 
 ## [2026-11-18]
