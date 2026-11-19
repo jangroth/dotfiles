@@ -10,7 +10,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Always run `make lint` before committing.
 - Always check if `README.md` requires updating before committing.
-- Never push to remote without explicit user confirmation, except `auto/issue-*` branches pushed by the nightly routine (see `.claude/routines/nightly-todo.md`).
 
 ## Development conventions
 
