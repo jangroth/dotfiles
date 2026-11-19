@@ -1,22 +1,12 @@
-# CLAUDE.md
+# dotfiles
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Shell, editor, git, tmux and terminal config for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
 
-## conventions
+## Conventions
 
-- Keep `README.md` up to date whenever making changes that affect setup, usage, or tooling.
-
-## Git workflow
-
-- Always run `make lint` before committing.
-- Always check if `README.md` requires updating before committing.
-
-## Development conventions
-
+- Run `make lint` before committing.
+- Keep `README.md` up to date with any change to setup, usage or tooling; check it before committing.
 - When implementing CLI commands or shell functions, ask clarifying questions about the desired interface (argument format, completion behavior) before coding.
-## What this repo is
-
-Dotfiles for macOS and Linux. Config files live in `files/`, setup scripts in `scripts/`. Scripts symlink or copy files into `$HOME`.
 
 ## Running setup
 
