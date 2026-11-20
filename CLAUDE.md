@@ -27,22 +27,17 @@ DOT_VERBOSE=true ./scripts/10_setup_zsh.sh     # verbose/trace output
 make install
 ```
 
-## Architecture
+## Writing config and scripts
 
-### `scripts/_config.sh`
-Shared config sourced by all setup scripts. Sets `$DOT_OS` (`darwin`/`linux`/`windows`) and `$DOT_ROOT` (repo root). Scripts call `confirm_binaries` to fail fast on missing deps.
+- Each `files/<tool>/` dir has a matching `scripts/NN_setup_<tool>.sh`. A setup script sources `scripts/_config.sh` (`$DOT_OS`, `$DOT_ROOT`) and calls `confirm_binaries` for its deps.
+- Guard tool-specific env vars in `files/zsh/` with `command -v <tool>`.
+- Shell functions go in `files/shell/functions/`, one per file; they're auto-loaded from `~/.zsh/functions/`.
 
-### `files/` structure
-- `zsh/` — `zshenv` (all shells), `zprofile` (login), `zshrc` (interactive). Tool-specific env vars are guarded with `command -v <tool>` checks.
-- `shell/aliases` and `shell/functions/` — sourced by `zshrc`; functions are auto-loaded from `~/.zsh/functions/`
-- `zsh/completions/` — custom completions copied to `~/.zsh/completions/`
-- Other dirs (`git/`, `tmux/`, `vim/`, `starship/`, `vscode/`, `ghostty/`) each have a corresponding `scripts/NN_setup_*.sh`
+## Platform differences
 
-### Platform differences
-- Linux uses `fdfind` (the Ubuntu package name); macOS uses `fd`
-- `$PROJECTS_HOME` resolves to `~/Projects` on macOS, `~` on Linux (set in `zprofile`)
-- The Docker image creates a `~/.local/bin/fd → fdfind` symlink to normalize this
+- Linux uses `fdfind` (the Ubuntu package name); macOS uses `fd`. The Docker image symlinks `~/.local/bin/fd → fdfind`.
+- `$PROJECTS_HOME` resolves to `~/Projects` on macOS, `~` on Linux (set in `zprofile`).
 
-## TODO
+## Issues
 
 Tracked as GitHub issues with the triage labels from the user-level `CLAUDE.md`. `ready-for-agent` issues are picked up by the nightly routine.
