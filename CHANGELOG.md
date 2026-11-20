@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2026-11-20]
+
+### Changed
+
+- CLAUDE.md: keep conventions, drop layout tour ([#147](../../pull/147))
+
 ## [2026-11-19]
 
 ### Changed
